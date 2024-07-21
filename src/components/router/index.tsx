@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "../../styles/global";
 import { StyleSheetManager } from "styled-components";
-import Header from "../common/Header";
+import SignIn from "src/pages/auth/signIn";
 
 const Router = () => {
   return (
@@ -9,7 +9,7 @@ const Router = () => {
       <BrowserRouter>
         <GlobalStyles />
         <Routes>
-          {/* <Route path="/" element={<Header />} /> */}
+          <Route path="/sign-in" element={<SignIn />} />
         </Routes>
       </BrowserRouter>
     </StyleSheetManager>

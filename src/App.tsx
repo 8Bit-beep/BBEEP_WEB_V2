@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "./components/common/Header";
 import { QueryClientProvider, QueryClient } from "react-query";
+import Router from "./components/router";
 
 function App() {
   const [queryClient] = useState(
@@ -12,12 +12,12 @@ function App() {
             retry: 0,
           },
         },
-      }),
+      })
   );
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
-        <Header />
+        <Router />
       </div>
     </QueryClientProvider>
   );
