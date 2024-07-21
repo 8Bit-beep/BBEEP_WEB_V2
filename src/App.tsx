@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "./components/common/Header";
 import { QueryClientProvider, QueryClient } from "react-query";
+import Sidebar from "./components/common/Sidebar";
+import Router from "./components/router";
 
 function App() {
   const [queryClient] = useState(
@@ -17,7 +19,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
-        <Header />
+        <Router />
       </div>
     </QueryClientProvider>
   );
