@@ -71,7 +71,7 @@ export const SiginInputWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const EmailInput = styled.input`
+export const IdInput = styled.input`
   width: 90%;
   height: 30%;
   padding-left: 10%;
