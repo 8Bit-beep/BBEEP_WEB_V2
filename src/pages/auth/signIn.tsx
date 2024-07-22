@@ -20,7 +20,6 @@ const SignIn = () => {
             </S.SiginInputWrapper>
             <S.ButtonWrapper>
               <S.SignInButton>로그인</S.SignInButton>
-              <S.ForgotPw>비밀번호를 잊어버렸나요?</S.ForgotPw>
             </S.ButtonWrapper>
           </S.SingInContentWrapper>
         </S.SignInWrapper>

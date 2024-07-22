@@ -127,8 +127,3 @@ export const SignInButton = styled.button`
   font-size: 1.2rem;
 `;
 
-export const ForgotPw = styled.span`
-  font-size: 1rem;
-  color: #acadae;
-  margin-left: 65%;
-`;
