@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
+import Sidebar from "./components/common/Sidebar";
 import Router from "./components/router";
 
 function App() {
