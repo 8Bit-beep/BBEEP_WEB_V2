@@ -1,3 +1,4 @@
+import { sidebarMenuStore } from "src/stores/common/student.store";
 import { useEffect, useState } from "react";
 import { NavigateFunction } from "react-router-dom";
 
@@ -10,27 +11,33 @@ interface NavigationProps {
 
 const UseSideBarNavigation = ({ location, navigate }: NavigationProps) => {
   const [isClickCategory, setIsClickCategory] = useState("1학년");
-
+  const setMenu = sidebarMenuStore((state) => state.setMenu);
   useEffect(() => {
     const handleNavigation = () => {
       switch (location.pathname) {
         case "/check-student/first-grade":
           setIsClickCategory("1학년");
+          setMenu(isClickCategory);
           break;
         case "/check-student/second-grade":
           setIsClickCategory("2학년");
+          setMenu(isClickCategory);
           break;
         case "/check-student/third-grade":
           setIsClickCategory("3학년");
+          setMenu(isClickCategory);
           break;
         case "/check-class/first-floor":
           setIsClickCategory("1층");
+          setMenu(isClickCategory);
           break;
         case "/check-class/second-floor":
           setIsClickCategory("2층");
+          setMenu(isClickCategory);
           break;
         case "/check-class/third-floor":
           setIsClickCategory("3층");
+          setMenu(isClickCategory);
           break;
         default:
           setIsClickCategory("");
