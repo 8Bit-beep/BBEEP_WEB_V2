@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar";
-import ClassSidebar from "src/components/common/Sidebar/classSidebar";
+import ClassSidebar from "src/components/common/Sidebar/studentSidebar";
 import useStudent from "src/hooks/student/useStudent";
 
 const CheckStudent = () => {
