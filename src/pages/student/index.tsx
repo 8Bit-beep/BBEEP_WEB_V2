@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./style";
 import Header from "src/components/common/Header";
-import Sidebar from "src/components/common/Sidebar";
-import ClassSidebar from "src/components/common/Sidebar/studentSidebar";
+import DefaultSideBar from "src/components/common/Sidebar/defaultSideBar"
+import StudentSidebar from "src/components/common/Sidebar/studentSidebar";
 import useStudent from "src/hooks/student/useStudent";
 
 const CheckStudent = () => {
@@ -11,9 +11,9 @@ const CheckStudent = () => {
     <S.CheckStudentWrap>
       <Header />
       <S.Main>
-        <Sidebar />
+        <DefaultSideBar />
         <S.MainView>
-          <ClassSidebar />
+          <StudentSidebar />
           <S.ViewStudentWrap>
             <S.StudentLayer>
               <span>이름</span>

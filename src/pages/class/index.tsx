@@ -1,11 +1,11 @@
 import Header from "src/components/common/Header";
-import Sidebar from "src/components/common/Sidebar";
+import ClassSidebar from "src/components/common/Sidebar/classSideBar";
 
 const CheckClass = () => {
   return (
     <div>
       <Header />
-      <Sidebar />
+      < ClassSidebar/>
     </div>
   );
 };
