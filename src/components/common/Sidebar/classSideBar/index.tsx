@@ -65,6 +65,9 @@ const ClassSidebar = () => {
           $isclicked={isClickCategory === "3층" ? "true" : "false"}>
             <img src={Three} />
             <span>3층</span>
+            <span>test</span>
+
+
           </S.Item>
         </S.MenuItem>
       </S.MenuWrap>
