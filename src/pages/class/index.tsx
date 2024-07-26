@@ -1,12 +1,17 @@
 import Header from "src/components/common/Header";
-import ClassSidebar from "src/components/common/Sidebar/classSideBar";
-
+import * as S from "src/pages/class/style"
+import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 const CheckClass = () => {
   return (
-    <div>
+    <S.CheckClassWrapper>
       <Header />
-      < ClassSidebar/>
-    </div>
+        <S.MainWrapper>
+        <Sidebar/>
+          <S.ClassItem>
+     
+          </S.ClassItem>
+        </S.MainWrapper>
+    </S.CheckClassWrapper>
   );
 };
 

@@ -5,8 +5,6 @@ import SidebarLab from "src/assets/SidebarLab.svg";
 import One from "src/assets/1.svg";
 import Two from "src/assets/2.svg";
 import Three from "src/assets/3.svg";
-import Project from "src/assets/Project.svg";
-import Lab from "src/assets/Lab.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseSideBarNavigation from "src/utils/common/sidebarNavigation";
 
