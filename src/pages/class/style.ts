@@ -36,9 +36,6 @@ export const ClassItem = styled.div<{ clicked: boolean }>`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  &:active {
-    background-color: #3cb0b8;
-  }
 `;
 
 export const ItemContentWrap = styled.div`
