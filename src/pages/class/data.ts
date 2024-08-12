@@ -1,4 +1,4 @@
-export enum Code{
+export enum Code {
   PROJECT1 = "1101",
   PROJECT2 = "1102",
   LAB1 = "2201",
@@ -32,3 +32,6 @@ export enum Code{
   LAB22 = "3315",
 }
 
+enum Test {
+  
+}

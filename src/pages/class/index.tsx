@@ -1,29 +1,35 @@
 import Header from "src/components/common/Header";
 import * as S from "src/pages/class/style";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
-import Item from "./item";
-import { Code } from "src/pages/class/data";
+import ModalPortal from "src/portal/portal";
+import Modal from "src/modal";
+import { useState } from "react";
 
 const CheckClass = () => {
-  const CodeMap = Object.keys(Code).map((key) => {
-    const label = key as keyof typeof Code;
-    return { label, value: Code[label] };
-  });
+  const [modal, setModal] = useState<boolean>(false);
+  const [style, setStyle] = useState<boolean>(false);
 
-  console.log(CodeMap)
-
+  const ItemClick = () => {
+    setModal(!modal);
+    setStyle(!style);
+  };
   return (
-    <S.CheckClassWrapper>
-      <Header />
-      <S.MainWrapper>
-        <Sidebar />
-        <S.ContentWrapper>
-          <S.ContentMainWrapper>
-            <Item />
-          </S.ContentMainWrapper>
-        </S.ContentWrapper>
-      </S.MainWrapper>
-    </S.CheckClassWrapper>
+    <ModalPortal>
+      <S.CheckClassWrapper>
+        <Header />
+        <S.MainWrapper>
+          <Sidebar />
+          <S.ContentWrapper>
+            <S.ContentMainWrapper>
+              <S.ClassItem onClick={ItemClick} clicked={style}>
+                <S.ItemContentWrap></S.ItemContentWrap>
+              </S.ClassItem>
+            </S.ContentMainWrapper>
+          </S.ContentWrapper>
+        </S.MainWrapper>
+        {modal === true ? <Modal onClick={ItemClick}></Modal> : <></>}
+      </S.CheckClassWrapper>
+    </ModalPortal>
   );
 };
 
