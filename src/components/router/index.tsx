@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "../../styles/global";
 import { StyleSheetManager } from "styled-components";
 import CheckStudent from "src/pages/student";
-import CheckClass from "src/pages/class";
+import FirstClass from "src/pages/class/firstClass";
+import SecondClass from "src/pages/class/secondClass";
+import ThirdClass from "src/pages/class/thirdClass";
 
 const Router = () => {
   return (
@@ -11,7 +13,9 @@ const Router = () => {
         <GlobalStyles />
         <Routes>
           <Route path="/check-student/first-grade" element={<CheckStudent />} />
-          <Route path="/check-class/first-floor" element={<CheckClass />} />
+          <Route path="/check-class/first-floor" element={<FirstClass />} />
+          <Route path="/check-class/second-floor" element={<SecondClass />} />
+          <Route path="/check-class/third-floor" element={<ThirdClass />} />
         </Routes>
       </BrowserRouter>
     </StyleSheetManager>

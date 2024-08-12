@@ -31,7 +31,3 @@ export enum Code {
   LAB21 = "3314",
   LAB22 = "3315",
 }
-
-enum Test {
-  
-}

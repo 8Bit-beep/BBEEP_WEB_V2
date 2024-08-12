@@ -42,6 +42,11 @@ export const ItemContentWrap = styled.div`
   width: 89%;
   height: 75%;
   background-color: #323a45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: white;
   border-radius: 10px;
   box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;

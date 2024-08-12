@@ -48,15 +48,24 @@ const Sidebar = () => {
           <span>실 조회햐기</span>
         </S.MenuTitle>
         <S.MenuItem style={{ minHeight: "75%" }}>
-          <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
+          <S.Item
+            onClick={() => handleCategoryClick("1층")}
+            $isclicked={isClickCategory === "1학년" ? "true" : "false"}
+          >
             <img src={One} />
             <span>1층</span>
           </S.Item>
-          <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
+          <S.Item
+            onClick={() => handleCategoryClick("2층")}
+            $isclicked={isClickCategory === "2학년" ? "true" : "false"}
+          >
             <img src={Two} />
             <span>2층</span>
           </S.Item>
-          <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
+          <S.Item
+            onClick={() => handleCategoryClick("3층")}
+            $isclicked={isClickCategory === "3학년" ? "true" : "false"}
+          >
             <img src={Three} />
             <span>3층</span>
           </S.Item>
