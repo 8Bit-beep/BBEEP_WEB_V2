@@ -7,7 +7,6 @@ import { ClassResponse, ClassResponseType } from "@src/types/class/class.type";
 const useCheckClass = () => {
   const codeValue = Object.values(Code);
   const location = useLocation();
-  const CodeValueArray = [];
   const codeKey = Object.keys(Code);
 
   const [modal, setModal] = useState<boolean>(false);
@@ -27,21 +26,22 @@ const useCheckClass = () => {
     }
   }, [code]);
 
+  const codeEntries = Object.entries(Code);
+
+  const CodeValueArray: Array<{ key: string; value: string }> = [];
+
   if (location.pathname.substring(13, 18) === "first") {
-    const FirstFilterCode = codeValue.filter((item) => item.startsWith("1"));
-    
-    CodeValueArray.push(FirstFilterCode);
+    const FirstFilterCode = codeEntries.filter(([key, value]) => value.startsWith("1"));
+    CodeValueArray.push(...FirstFilterCode.map(([key, value]) => ({ key, value })));
   } else if (location.pathname.substring(13, 19) === "second") {
-    const SecondFilterCode = codeValue.filter((item) => item.startsWith("2"));
-    CodeValueArray.push(SecondFilterCode);
+    const SecondFilterCode = codeEntries.filter(([key, value]) => value.startsWith("2"));
+    CodeValueArray.push(...SecondFilterCode.map(([key, value]) => ({ key, value })));
   } else if (location.pathname.substring(13, 18) === "third") {
-    const ThirdFilterCode = codeValue.filter((item) => item.startsWith("3"));
-    CodeValueArray.push(ThirdFilterCode);
+    const ThirdFilterCode = codeEntries.filter(([key, value]) => value.startsWith("3"));
+    CodeValueArray.push(...ThirdFilterCode.map(([key, value]) => ({ key, value })));
   }
 
-
-
-  console.log(code);
+  console.log("Filtered Codes:", CodeValueArray);
 
   const ClassList = async () => {
     try {
@@ -62,7 +62,6 @@ const useCheckClass = () => {
     codeKey,
     ClassList,
     cls,
-
   };
 };
 

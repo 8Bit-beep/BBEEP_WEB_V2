@@ -7,7 +7,7 @@ import Modal from "src/modal";
 
 const ThirdClass = () => {
   const { CodeValueArray, modal, style, ItemClick, cls, codeKey } = useCheckClass();
-  console.log(codeKey)
+  console.log(codeKey);
 
   return (
     <ModalPortal>
@@ -17,19 +17,11 @@ const ThirdClass = () => {
           <Sidebar />
           <S.ContentWrapper>
             <S.ContentMainWrapper>
-              {CodeValueArray.map((item) =>
-                item.map((item, idx) => (
-                  <S.ClassItem
-                    onClick={() => {
-                      ItemClick(item);
-                    }}
-                    clicked={style === item ? true : false}
-                    key={idx}
-                  >
-                    <S.ItemContentWrap>{item}</S.ItemContentWrap>
-                  </S.ClassItem>
-                ))
-              )}
+              {CodeValueArray.map((item, idx) => (
+                <S.ClassItem onClick={() => ItemClick(item.value)} clicked={style === item.value ? true : false}>
+                  <S.ItemContentWrap>{item.key}</S.ItemContentWrap>
+                </S.ClassItem>
+              ))}
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>
