@@ -12,12 +12,22 @@ const Modal = ({ onClick, cls }: Props) => {
   return (
     <S.Wrapper>
       <S.ModalWrapper>
-        <img style={{ width: 30, height: 30 }} src={Back} onClick={onClick} />
-        {
-          cls.map((item, idx) => (
+        <S.ModalMainWrapper>
+          <S.HeaderLineWrapper>
+            <img style={{ width: 40, height: 40 }} src={Back} onClick={onClick} />
+            <S.ModalTitleWrapper></S.ModalTitleWrapper>
+          </S.HeaderLineWrapper>
+          <S.ModalListWrapper>
+            <S.ListItem></S.ListItem>
+            <S.ListItem />
+            <S.ListItem />
+            <S.ListItem />
+          </S.ModalListWrapper>
+
+          {cls.map((item, idx) => (
             <div key={idx}>{item.cls}</div>
-          ))
-        }
+          ))}
+        </S.ModalMainWrapper>
       </S.ModalWrapper>
     </S.Wrapper>
   );
