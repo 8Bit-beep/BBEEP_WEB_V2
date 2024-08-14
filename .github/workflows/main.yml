@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      # - name: Run TypeScript build
-      #   run: npm run build   # typescript 빌드가 포함된 npm 스크립트
+      - name: Run TypeScript build
+        run: npm run build   # typescript 빌드가 포함된 npm 스크립트
 
       - name: Docker build & push to prod
         run: |
