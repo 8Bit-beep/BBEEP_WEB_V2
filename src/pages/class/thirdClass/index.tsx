@@ -6,8 +6,8 @@ import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 
 const ThirdClass = () => {
-  const { CodeValueArray, modal, style, ItemClick, cls, codeKey } = useCheckClass();
-  console.log(codeKey);
+  const { CodeValueArray, modal, style, ItemClick, cls } = useCheckClass();
+
 
   return (
     <ModalPortal>

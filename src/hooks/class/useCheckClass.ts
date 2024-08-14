@@ -3,28 +3,35 @@ import CONFIG from "src/config/config.json";
 import { Code } from "src/pages/class/data";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ClassResponse, ClassResponseType } from "@src/types/class/class.type";
+import { ClassResponse, ClassResponseType } from "src/types/class/class.type";
 const useCheckClass = () => {
-  const codeValue = Object.values(Code);
   const location = useLocation();
-  const codeKey = Object.keys(Code);
 
   const [modal, setModal] = useState<boolean>(false);
   const [style, setStyle] = useState<string>("");
   const [code, setCode] = useState<string>("");
   const [cls, setCls] = useState<ClassResponseType[]>([]);
 
+  useEffect(() => {
+    if (code) {
+      ClassList();
+    }
+  }, [code]);
+  
   const ItemClick = (item: string) => {
     setModal(!modal);
     setStyle(item);
     setCode(item);
   };
 
-  useEffect(() => {
-    if (code) {
-      ClassList();
+  const ClassList = async () => {
+    try {
+      const res = await axios.get<ClassResponse>(`${CONFIG.serverUrl}/student/attend-list?code=${code}`);
+      setCls(res.data.data);
+    } catch (error) {
+      console.error(error);
     }
-  }, [code]);
+  };
 
   const codeEntries = Object.entries(Code);
 
@@ -41,17 +48,6 @@ const useCheckClass = () => {
     CodeValueArray.push(...ThirdFilterCode.map(([key, value]) => ({ key, value })));
   }
 
-  console.log("Filtered Codes:", CodeValueArray);
-
-  const ClassList = async () => {
-    try {
-      const res = await axios.get<ClassResponse>(`${CONFIG.serverUrl}/student/attend-list?code=${code}`);
-      setCls(res.data.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return {
     CodeValueArray,
     ItemClick,
@@ -59,7 +55,6 @@ const useCheckClass = () => {
     style,
     code,
     setCode,
-    codeKey,
     ClassList,
     cls,
   };

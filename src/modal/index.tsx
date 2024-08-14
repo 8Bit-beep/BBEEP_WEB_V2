@@ -18,15 +18,10 @@ const Modal = ({ onClick, cls }: Props) => {
             <S.ModalTitleWrapper></S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
-            <S.ListItem></S.ListItem>
-            <S.ListItem />
-            <S.ListItem />
-            <S.ListItem />
+            {cls.map((item, idx) => (
+              <S.ListItem key={idx}>{item.cls}</S.ListItem>
+            ))}
           </S.ModalListWrapper>
-
-          {cls.map((item, idx) => (
-            <div key={idx}>{item.cls}</div>
-          ))}
         </S.ModalMainWrapper>
       </S.ModalWrapper>
     </S.Wrapper>
