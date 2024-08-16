@@ -1,12 +1,10 @@
 import React from "react";
 import * as S from "./style";
-import SidebarStudent from "src/assets/SidebarStudent.svg";
-import SidebarLab from "src/assets/SidebarLab.svg";
-import One from "src/assets/1.svg";
-import Two from "src/assets/2.svg";
-import Three from "src/assets/3.svg";
-import Project from "src/assets/Project.svg";
-import Lab from "src/assets/Lab.svg";
+import SidebarStudent from "src/assets/common/SidebarStudent.svg";
+import SidebarLab from "src/assets/common/SidebarLab.svg";
+import One from "src/assets/common/1.svg";
+import Two from "src/assets/common/2.svg";
+import Three from "src/assets/common/3.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseSideBarNavigation from "src/utils/common/sidebarNavigation";
 
@@ -51,11 +49,11 @@ const Sidebar = () => {
         </S.MenuTitle>
         <S.MenuItem style={{ minHeight: "50%" }}>
           <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
-            <img src={Project} />
+          
             <span>프로젝트 실</span>
           </S.Item>
           <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
-            <img src={Lab} />
+     
             <span>LAB 실</span>
           </S.Item>
         </S.MenuItem>

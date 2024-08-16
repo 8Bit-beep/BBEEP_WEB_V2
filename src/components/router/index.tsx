@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "../../styles/global";
 import { StyleSheetManager } from "styled-components";
-import SignIn from "src/pages/auth/signIn";
+import SignIn from "src/pages/auth/signin/index";
 import CheckStudent from "src/pages/student";
 
 const Router = () => {
