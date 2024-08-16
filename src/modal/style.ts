@@ -37,6 +37,10 @@ export const ModalTitleWrapper = styled.div`
   margin: 0 auto;
   border-radius: 10px;
   align-self: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
 `;
 
 export const HeaderLineWrapper = styled.div`

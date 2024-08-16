@@ -3,7 +3,7 @@ import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
 
 interface Props {
-  onClick: any;
+  onClick: () => void;
 
   cls: ClassResponseType[];
 }
@@ -18,9 +18,22 @@ const Modal = ({ onClick, cls }: Props) => {
             <S.ModalTitleWrapper></S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
-            {cls.map((item, idx) => (
-              <S.ListItem key={idx}>{item.cls}</S.ListItem>
-            ))}
+            <S.ListItem>
+              <span>서영우</span>
+              <span>2113</span>
+            </S.ListItem>
+            <S.ListItem>
+              <span>서영우</span>
+              <span>2113</span>
+            </S.ListItem>
+            <S.ListItem>
+              <span>서영우</span>
+              <span>2113</span>
+            </S.ListItem>
+            <S.ListItem>
+              <span>서영우</span>
+              <span>2113</span>
+            </S.ListItem>
           </S.ModalListWrapper>
         </S.ModalMainWrapper>
       </S.ModalWrapper>
