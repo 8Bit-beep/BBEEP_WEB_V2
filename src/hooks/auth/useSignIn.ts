@@ -1,8 +1,8 @@
 import CONFIG from "src/config/config.json";
 import axios from "axios";
 import { useCallback, useState } from "react";
-import cookie from "src/libs/cookie/cookie";
-import { ACCESS_TOKEN_KEY } from "src/constants/token.constants";
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "src/constants/token.constants";
+import token from "src/libs/token/token";
 
 interface User {
   id: string | undefined;
@@ -16,19 +16,21 @@ const useSignIn = () => {
       const { value, name } = e.target;
       setUser((prev) => ({ ...prev, [name]: value }));
     },
-    [setUser]
+    [setUser],
   );
 
   const SignInButton = async () => {
     if (user.id && user.password !== "") {
       await axios
         .post(`${CONFIG.serverUrl}/auth/sign-in`, {
-          id: user.id,
+          email: user.id,
           password: user.password,
+          authority: "TEACHER",
         })
-        .then((res) => {
+        .then((res) => {  
           alert("로그인 성공");
-          cookie.setCookie(ACCESS_TOKEN_KEY, res.data.accessToken);
+          token.setToken(ACCESS_TOKEN_KEY, res.data.data.accessToken);
+          token.setToken(REFRESH_TOKEN_KEY, res.data.data.refreshToken);
         })
         .catch((error) => {
           console.error(error);
