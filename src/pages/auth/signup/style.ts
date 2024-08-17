@@ -124,3 +124,36 @@ export const BackButton = styled.img`
   height: 30px;
   margin-top: 10%;
 `;
+
+export const DropDownWrap = styled.div`
+  width: 100%;
+  height: 65px;
+  border-radius: 8px;
+  display: flex;
+  border: 1px solid #c8c8c8;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+`;
+
+export const DropDownListWrap = styled.ul`
+  width: 420px;
+  height: 20%;
+  position: absolute;
+  z-index: 5;
+  overflow-y: scroll;
+`;
+
+export const DropDownList = styled.li`
+  width: 100%;
+  height: 50px;
+  border: 1px solid #c8c8c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  &:hover {
+    background-color: #aeaeae;
+  }
+  
+`;
