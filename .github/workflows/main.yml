@@ -45,4 +45,4 @@ jobs:
             docker rm beep_web || true
             docker rmi ${{ secrets.DOCKER_USERNAME }}/beep_web:latest || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/beep_web:latest
-            docker run -d -p 3000:3000 --name beep_web ${{ secrets.DOCKER_USERNAME }}/beep_web:latest
+            docker run -d -p 80:8080 --name beep_web ${{ secrets.DOCKER_USERNAME }}/beep_web:latest
