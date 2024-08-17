@@ -21,8 +21,8 @@ FROM nginx:alpine
 # 빌드된 파일들을 Nginx가 제공할 수 있도록 복사
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Nginx는 기본적으로 3000 포트를 사용
-EXPOSE 3000
+# Nginx는 기본적으로 80 포트를 사용
+EXPOSE 80
 
 # Nginx를 시작
 CMD ["nginx", "-g", "daemon off;"]
