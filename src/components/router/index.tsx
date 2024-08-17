@@ -4,7 +4,7 @@ import { StyleSheetManager } from "styled-components";
 import SignIn from "src/pages/auth/signin/index";
 import CheckStudent from "src/pages/student";
 import SignUp from "src/pages/auth/signup";
-import DropDown from "src/pages/auth/signup/dropDown";
+import FindAuth from "src/pages/auth/signup/findAuth";
 
 const Router = () => {
   return (
@@ -15,7 +15,7 @@ const Router = () => {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/check-student/first-grade" element={<CheckStudent />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/components" element={<DropDown />} />
+          <Route path="/find" element={<FindAuth />} />
         </Routes>
       </BrowserRouter>
     </StyleSheetManager>

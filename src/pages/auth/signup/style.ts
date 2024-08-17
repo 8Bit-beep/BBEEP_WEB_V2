@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
 `;
 
 export const SignUpWrapper = styled.div`
-  width: 35%;
+  width: 45%;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6f7f9;
+  background-color: #fff;
   box-shadow: 0px 4px 250px 0px rgba(0, 0, 0, 0.25);
 `;
 
@@ -57,6 +57,13 @@ export const InputTitleSpan = styled.span`
   font-size: 1.2rem;
   margin-bottom: 10%;
 `;
+
+export const TitleSpan = styled.span`
+  font-size: 1.8rem;
+  margin-bottom: 10%;
+`;
+
+
 
 export const StyleInput = styled.input`
   width: 93%;
@@ -155,5 +162,4 @@ export const DropDownList = styled.li`
   &:hover {
     background-color: #aeaeae;
   }
-  
 `;
