@@ -3,7 +3,7 @@ import * as S from "./style";
 import Header from "src/components/common/Header/index.tsx";
 import Sidebar from "src/components/common/Sidebar/index.tsx";
 import ClassSidebar from "src/components/common/Sidebar/classSidebar/index.tsx";
-import useStudent from "src/hooks/student/useStudent";
+import useStudent from "src/hooks/student/useStudent.ts";
 
 const CheckStudent = () => {
   const { ...student } = useStudent();
