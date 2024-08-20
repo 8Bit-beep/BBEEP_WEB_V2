@@ -2,7 +2,7 @@
 FROM node:20
 
 # 작업 디렉토리를 설정합니다.
-WORKDIR /app
+WORKDIR /src
 
 # package.json과 package-lock.json 파일을 복사합니다.
 COPY package*.json ./
