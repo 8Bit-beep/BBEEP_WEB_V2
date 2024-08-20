@@ -17,7 +17,7 @@ RUN npm install
 COPY ./src /app/src
 
 # 빌드 명령어를 실행합니다.
-RUN npm build
+RUN npm run build
 
 # 어플리케이션 실행 명령어
 CMD ["npm", "start"]
