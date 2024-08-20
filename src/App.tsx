@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/common/Header";
 import { QueryClientProvider, QueryClient } from "react-query";
 import Sidebar from "./components/common/Sidebar";
-import Router from "./components/router";
+import Router from "./components/router/index.tsx";
 
 function App() {
   const [queryClient] = useState(
@@ -14,7 +14,7 @@ function App() {
             retry: 0,
           },
         },
-      }),
+      })
   );
   return (
     <QueryClientProvider client={queryClient}>
