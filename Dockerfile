@@ -11,13 +11,13 @@ COPY package.json ./
 RUN npm install -g pnpm
 
 # 의존성을 설치합니다.
-RUN pnpm install
+RUN npm install
 
 # 소스 코드를 복사합니다.
 COPY ./src /app/src
 
 # 빌드 명령어를 실행합니다.
-RUN pnpm build
+RUN npm build
 
 # 어플리케이션 실행 명령어
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]
