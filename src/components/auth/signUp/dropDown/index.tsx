@@ -1,7 +1,9 @@
 import { useState } from "react";
-import * as S from "../style";
+import * as S from "src/pages/auth/signup/style";
 import Arrow from "src/assets/auth/signup/arrow1.svg";
 import ReverseArrow from "src/assets/auth/signup/arrow2.svg";
+
+
 
 const DropDown = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -24,7 +26,6 @@ const DropDown = () => {
           <S.DropDownList>서영우</S.DropDownList>
           <S.DropDownList>서영우</S.DropDownList>
           <S.DropDownList>서영우</S.DropDownList>
-          
         </S.DropDownListWrap>
       )}
     </div>

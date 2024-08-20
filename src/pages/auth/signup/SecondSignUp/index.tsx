@@ -2,6 +2,7 @@ import * as S from "../style";
 import { SetStateAction, useState, Dispatch } from "react";
 import Logo from "src/assets/auth/signup/BbeepLogo.svg";
 import Back from "src/assets/auth/signup/BackButton.svg";
+import UseSignUp from "src/hooks/auth/useSignUp";
 
 interface Props {
   check: boolean | (() => void);
@@ -9,7 +10,8 @@ interface Props {
   setNext: Dispatch<SetStateAction<boolean>>;
 }
 
-const SecondSignUp = ({check, setCheck, setNext} : Props) => {
+const SecondSignUp = ({ check, setCheck, setNext }: Props) => {
+  const { SignUpHandle, signup } = UseSignUp();
 
   const PwCheckRender = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter") {
@@ -29,8 +31,14 @@ const SecondSignUp = ({check, setCheck, setNext} : Props) => {
           <S.BbeepLogo src={Logo} />
           <S.InputWrapper>
             <S.InputTitleSpan>비밀번호 설정</S.InputTitleSpan>
-            <S.PwInput placeholder="비밀번호를 입력하세요" onKeyDown={PwCheckRender} />
-            {check === true && <S.PwCheckInput placeholder="비밀번호를 확인해주세요" />}
+            <S.PwInput
+              placeholder="비밀번호를 입력하세요"
+              onChange={SignUpHandle}
+              onKeyDown={PwCheckRender}
+              name="password"
+              value={signup.password}
+            />
+            {check === true && <S.PwCheckInput placeholder="비밀번호를 확인해주세요" name="check" />}
             <S.SignUpButton>회원가입</S.SignUpButton>
           </S.InputWrapper>
         </S.ContentWrapper>
