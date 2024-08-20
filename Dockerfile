@@ -1,28 +1,23 @@
-# 빌드 단계
-FROM node:12-alpine AS build
+# 적절한 Node.js 18 버전 이미지를 사용합니다.
+FROM node:20
 
-WORKDIR /app
+# 작업 디렉토리를 설정합니다.
+WORKDIR /src
 
-# package.json, package-lock.json과 tsconfig.json을 복사
-COPY package*.json tsconfig.json ./
+# 필요한 파일들을 복사합니다.
+COPY package.json ./
 
-# 의존성 설치
-RUN npm install
+# pnpm을 설치합니다.
+RUN npm install -g pnpm
 
-# 앱 소스 복사
+# 의존성을 설치합니다.
+RUN pnpm install
+
+# 소스 코드를 복사합니다.
 COPY . .
 
-# 타입스크립트로 트랜스파일 및 빌드
-RUN npm run build
+# 빌드 명령어를 실행합니다.
+RUN pnpm build
 
-# 프로덕션 단계
-FROM nginx:alpine
-
-# 빌드된 파일들을 Nginx가 제공할 수 있도록 복사
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Nginx는 기본적으로 80 포트를 사용
-EXPOSE 80
-
-# Nginx를 시작
-CMD ["nginx", "-g", "daemon off;"]
+# 어플리케이션 실행 명령어
+CMD ["pnpm", "start"]
