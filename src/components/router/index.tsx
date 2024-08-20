@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { GlobalStyles } from "../../styles/global";
+import { GlobalStyles } from "../../styles/global.ts";
 import { StyleSheetManager } from "styled-components";
 import CheckStudent from "src/pages/student";
 
