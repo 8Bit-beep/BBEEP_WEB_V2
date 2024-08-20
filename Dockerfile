@@ -14,7 +14,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 # 소스 코드를 복사합니다.
-COPY . .
+COPY ./src /app/src
 
 # 빌드 명령어를 실행합니다.
 RUN pnpm build
