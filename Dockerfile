@@ -11,7 +11,7 @@ COPY package.json ./
 RUN npm install
 
 # 소스 코드를 복사합니다.
-COPY ./src /app/src
+COPY ./public ./src /app/src
 
 # 빌드 명령어를 실행합니다.
 RUN npm run build
