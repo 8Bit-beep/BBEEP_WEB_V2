@@ -7,9 +7,6 @@ WORKDIR /src
 # 필요한 파일들을 복사합니다.
 COPY package.json ./
 
-# pnpm을 설치합니다.
-RUN npm install -g pnpm
-
 # 의존성을 설치합니다.
 RUN npm install
 
