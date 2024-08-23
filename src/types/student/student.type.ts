@@ -1,9 +1,14 @@
+import { BaseResponse } from "../util/response.type";
+
+export interface ClassMemberResponse extends BaseResponse {
+  data: ClassMemberType[];
+}
+
 export interface ClassMemberType {
-  userIdx: number;
   name: string;
   num: number;
-  floor: number;
   roomName: string;
+  room: string;
 }
 
 export interface ClassMemberParams {

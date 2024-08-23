@@ -47,14 +47,18 @@ const Sidebar = () => {
           <img src={SidebarLab} />
           <span>실 조회햐기</span>
         </S.MenuTitle>
-        <S.MenuItem style={{ minHeight: "50%" }}>
-          <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
-          
-            <span>프로젝트 실</span>
+        <S.MenuItem style={{ minHeight: "75%" }}>
+          <S.Item onClick={() => handleCategoryClick("1층")} $isclicked={isClickCategory === "1층" ? "true" : "false"}>
+            <img src={One} />
+            <span>1층</span>
           </S.Item>
-          <S.Item $isclicked={isClickCategory === "1학년" ? "true" : "false"}>
-     
-            <span>LAB 실</span>
+          <S.Item onClick={() => handleCategoryClick("2층")} $isclicked={isClickCategory === "2층" ? "true" : "false"}>
+            <img src={Two} />
+            <span>2층</span>
+          </S.Item>
+          <S.Item onClick={() => handleCategoryClick("3층")} $isclicked={isClickCategory === "3층" ? "true" : "false"}>
+            <img src={Three} />
+            <span>3층</span>
           </S.Item>
         </S.MenuItem>
       </S.MenuWrap>

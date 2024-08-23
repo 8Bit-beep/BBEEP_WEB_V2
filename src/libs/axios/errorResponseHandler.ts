@@ -29,7 +29,7 @@ const errorResponseHandler = async (error: AxiosError) => {
         isRefreshing = true;
 
         try {
-          const data = await axios.get(`${CONFIG.serverUrl}/auth/refresh?token=${usingRefreshToken}`);
+          const data = await axios.get(`${CONFIG.serverUrl}/auth/refresh?refreshToken=${usingRefreshToken}`);
           const newAccessToken = data.data.accessToken;
 
           token.setToken(ACCESS_TOKEN_KEY, newAccessToken);

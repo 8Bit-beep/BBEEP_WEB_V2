@@ -24,7 +24,6 @@ const useHeader = () => {
   return {
     keyword,
     isClicked,
-
     handleKeyword,
     handleClicked,
     useGetProfileInfo,

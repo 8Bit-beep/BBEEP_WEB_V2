@@ -22,8 +22,8 @@ const Header = () => {
         {profileInfo! !== undefined && profileInfo! !== null ? (
           <S.ProfileWrap>
             <div>
-              <h4>{profileInfo?.name}</h4>
-              <h5>{profileInfo?.department}</h5>
+              <h4>{profileInfo?.data.name}</h4>
+              <h5>{profileInfo?.data.department}</h5>
               <img src={Dropdown} onClick={header.handleClicked} />
             </div>
           </S.ProfileWrap>
@@ -37,7 +37,7 @@ const Header = () => {
           </S.ProfileWrap>
         )}
       </S.HeaderWrap>
-      {header.isClicked && <ProfileModal email={profileInfo?.email!} />}
+      {header.isClicked && <ProfileModal email={profileInfo?.data.email!} />}
     </>
   );
 };

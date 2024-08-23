@@ -109,6 +109,7 @@ export const ProfileModal = styled.div`
   position: absolute;
 
   left: 87%;
+  top: 10%;
 
   display: flex;
   flex-direction: column;
@@ -120,5 +121,7 @@ export const ProfileModal = styled.div`
     font-size: 14px;
     font-weight: 700;
     color: #fff;
+
+    cursor: pointer;
   }
 `;
