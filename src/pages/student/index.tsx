@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import * as S from "./style";
 import Header from "src/components/common/Header/index.tsx";
-import Sidebar from "src/components/common/Sidebar/index.tsx";
-import ClassSidebar from "src/components/common/Sidebar/classSidebar/index.tsx";
 import useStudent from "src/hooks/student/useStudent.ts";
+import StudentSidebar from "src/components/common/Sidebar/studentSidebar";
 
 const CheckStudent = () => {
   const { ...student } = useStudent();
@@ -11,9 +10,9 @@ const CheckStudent = () => {
     <S.CheckStudentWrap>
       <Header />
       <S.Main>
-        <Sidebar />
+        <DefaultSideBar />
         <S.MainView>
-          <ClassSidebar />
+          <StudentSidebar />
           <S.ViewStudentWrap>
             <S.StudentLayer>
               <span>이름</span>
