@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SecondSignUp = ({ check, setCheck, setNext }: Props) => {
-  const { SignUpHandle, signup } = UseSignUp();
+  const { SignUpHandle, signup, SignUpButton } = UseSignUp();
 
   const PwCheckRender = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter") {
@@ -36,10 +36,11 @@ const SecondSignUp = ({ check, setCheck, setNext }: Props) => {
               onChange={SignUpHandle}
               onKeyDown={PwCheckRender}
               name="password"
+              id="password"
               value={signup.password}
             />
-            {check === true && <S.PwCheckInput placeholder="비밀번호를 확인해주세요" name="check" />}
-            <S.SignUpButton>회원가입</S.SignUpButton>
+            {check === true && <S.PwCheckInput placeholder="비밀번호를 확인해주세요" id="check" name="check" />}
+            <S.SignUpButton onClick={SignUpButton}>회원가입</S.SignUpButton>
           </S.InputWrapper>
         </S.ContentWrapper>
       </S.SignUpMainWrapper>
