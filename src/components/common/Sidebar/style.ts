@@ -81,4 +81,6 @@ export const Item = styled.div<{ $isclicked: string }>`
   gap: 30px;
 
   cursor: pointer;
+
+  background: ${({ $isclicked }) => ($isclicked === "true" ? "#3CB0B8" : "transparent")};
 `;

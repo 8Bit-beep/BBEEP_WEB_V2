@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./style";
 import Header from "src/components/common/Header/index.tsx";
 import Sidebar from "src/components/common/Sidebar/index.tsx";
@@ -21,19 +21,10 @@ const CheckStudent = () => {
               <span>층</span>
               <span>실</span>
             </S.StudentLayer>
-            {/* {student.memberList?.map((item, idx) => (
+            {student.memberList?.data.map((item, idx) => (
               <S.StudentLayer key={idx}>
                 <span>{item.name}</span>
                 <span>{item.num}</span>
-                <span>{item.floor}</span>
-                <span>{item.roomName}</span>
-              </S.StudentLayer>
-            ))} */}
-            {student.memberList.map((item, idx) => (
-              <S.StudentLayer key={idx}>
-                <span>{item.name}</span>
-                <span>{item.num}</span>
-                <span>{item.floor}</span>
                 <span>{item.roomName}</span>
               </S.StudentLayer>
             ))}
