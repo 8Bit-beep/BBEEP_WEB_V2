@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./style";
 import BbeepLogo from "src/assets/BbeepLogo.svg";
-import SearchIcon from "src/assets/SearchIcon.svg";
+import SearchIcon from "src/assets/common/SearchIcon.svg";
 import useHeader from "src/hooks/common/useHeader";
-import Dropdown from "src/assets/Dropdown.svg";
+import Dropdown from "src/assets/common/Dropdown.svg";
 import ProfileModal from "./modal";
 
 const Header = () => {

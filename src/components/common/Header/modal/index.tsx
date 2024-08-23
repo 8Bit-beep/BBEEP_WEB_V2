@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "../style";
-import logout from "src/assets/logout.svg";
+import logout from "src/assets/common/logout.svg";
 
 interface EmailProps {
   email: string;
