@@ -1,18 +1,13 @@
-# 적절한 Node.js 20 버전 이미지를 사용합니다.
 FROM node:20
 
-# package.json과 package-lock.json 파일을 복사합니다.
-COPY package*.json ./
+WORKDIR /app
 
-# 의존성을 설치합니다.
+COPY package.json .
+
 RUN npm install
 
-# 소스 코드 및 public 디렉토리를 복사합니다.
-COPY ./src ./src
-COPY ./public ./public
+COPY . .
 
-# 빌드 명령어를 실행합니다.
-RUN npm run build
+EXPOSE 3000
 
-# 어플리케이션 실행 명령어
 CMD ["npm", "start"]
