@@ -2,7 +2,6 @@ import { useState } from "react";
 import * as S from "./style";
 import FirstSignUp from "./firstSignUp";
 import SecondSignUp from "./SecondSignUp";
-import UseSignUp from "src/hooks/auth/useSignUp";
 
 const SignUp = () => {
   const [check, setCheck] = useState<boolean>(false);

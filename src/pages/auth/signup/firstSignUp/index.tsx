@@ -5,7 +5,7 @@ import Logo from "src/assets/auth/signup/BbeepLogo.svg";
 import Back from "src/assets/auth/signup/BackButton.svg";
 import UseSignUp from "src/hooks/auth/useSignUp";
 import { SignUpvalidation } from "src/utils/auth/signUpvalidation";
-
+import { SignUpStore } from "src/stores/auth/signup/signup.store";
 
 interface Props {
   next: boolean | (() => void);
@@ -16,9 +16,14 @@ const FirstSignUp = ({ setNext }: Props) => {
   const { emailreg } = SignUpvalidation();
   const naviagate = useNavigate();
   const { signup, SignUpHandle } = UseSignUp();
-
   const Email = document.getElementById("email") as HTMLInputElement;
   const emailValue = Email?.value;
+  const setEmailStore = SignUpStore((state) => state.setEmail);
+  const setNameStore = SignUpStore((state) => state.setName);
+  const setDepartMentStore = SignUpStore((state) => state.setDepartMent);
+  setEmailStore(signup.email);
+  setNameStore(signup.name);
+  setDepartMentStore(signup.department);
 
   const Check = () => {
     if (!signup.name || !signup.email || !signup.department) {
