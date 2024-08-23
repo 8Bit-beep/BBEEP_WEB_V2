@@ -3,7 +3,7 @@ import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
 
 interface Props {
-  onClick: () => void;
+  onClick: (itme: string) => void;
 
   cls: ClassResponseType[];
 }
@@ -14,7 +14,7 @@ const Modal = ({ onClick, cls }: Props) => {
       <S.ModalWrapper>
         <S.ModalMainWrapper>
           <S.HeaderLineWrapper>
-            <img style={{ width: 40, height: 40 }} src={Back} onClick={onClick} />
+            <img style={{ width: 40, height: 40 }} src={Back} onClick={() => onClick("back")} />
             <S.ModalTitleWrapper></S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>

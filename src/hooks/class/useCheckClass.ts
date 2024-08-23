@@ -4,6 +4,7 @@ import { Code } from "src/pages/class/data";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ClassResponse, ClassResponseType } from "src/types/class/class.type";
+import Modal from "@src/modal";
 const useCheckClass = () => {
   const location = useLocation();
 
@@ -17,12 +18,14 @@ const useCheckClass = () => {
       ClassList();
     }
   }, [code]);
-  
+
   const ItemClick = (item: string) => {
-    setModal(!modal);
+    setModal((prevModal) => !prevModal);
     setStyle(item);
     setCode(item);
   };
+
+  const ModalClick = () => {};
 
   const ClassList = async () => {
     try {
@@ -56,6 +59,7 @@ const useCheckClass = () => {
     code,
     setCode,
     ClassList,
+    ModalClick,
     cls,
   };
 };

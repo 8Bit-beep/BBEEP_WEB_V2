@@ -6,7 +6,7 @@ import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 
 const SecondClass = () => {
-  const { CodeValueArray, modal, style, ItemClick, cls, ClassList } = useCheckClass();
+  const { CodeValueArray, modal, style, ItemClick, cls, ClassList, } = useCheckClass();
   console.log(CodeValueArray);
 
   return (
