@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import BackgroundImg from "src/assets/BbeepBackGround.svg";
-import LoginImg from "src/assets/LoginImg.svg";
-import BbeepLogo from "src/assets/BbeepLoginLogo.svg";
+import LoginImg from "src/assets/auth/signin/LoginImg.svg";
+import BbeepLogo from "src/assets/auth/signin/BbeepLoginLogo.svg";
 
 export const Wrapper = styled.div`
   width: 100vw;
