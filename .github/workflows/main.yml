@@ -1,0 +1,48 @@
+name: Test deploy
+on:
+  pull_request:
+    branches: ["main"]  
+  push:
+    branches: ["main"]          
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # 타입스크립트와 호환되는 Node.js 버전
+
+      - name: Check Node version
+        run: node -v
+        
+      - name: Install dependencies
+        run: npm install
+      
+      # - name: Run TypeScript build
+      #   run: npm run build   # typescript 빌드가 포함된 npm 스크립트
+
+      - name: Docker build & push to prod
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/beep_web:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/beep_web:latest
+          
+      - name: Deploy to prod
+        uses: appleboy/ssh-action@master
+        id: deploy-prod
+        with:
+          host: ${{ secrets.HOST_PROD }}
+          username: ubuntu
+          key: ${{ secrets.PRIVATE_KEY }}
+          envs: |
+            GITHUB_SHA=${{ github.sha }}
+          script: |
+            docker stop beep_web || true
+            docker rm beep_web || true
+            docker rmi ${{ secrets.DOCKER_USERNAME }}/beep_web:latest || true
+            docker pull ${{ secrets.DOCKER_USERNAME }}/beep_web:latest
+            docker run -d -p 3000:3000 --name beep_web ${{ secrets.DOCKER_USERNAME }}/beep_web:latest
