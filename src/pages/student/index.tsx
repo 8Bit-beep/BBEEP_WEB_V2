@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
 import * as S from "./style";
 import Header from "src/components/common/Header/index.tsx";
 import useStudent from "src/hooks/student/useStudent.ts";
 import StudentSidebar from "src/components/common/Sidebar/studentSidebar";
-
+import DefaultSideBar from "src/components/common/Sidebar/defaultSideBar/index";
 const CheckStudent = () => {
   const { ...student } = useStudent();
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+
 import * as S from "./style";
 import SidebarStudent from "src/assets/common/SidebarStudent.svg";
 import SidebarLab from "src/assets/common/SidebarLab.svg";

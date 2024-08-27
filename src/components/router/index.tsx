@@ -6,7 +6,6 @@ import FirstClass from "src/pages/class/firstClass";
 import SecondClass from "src/pages/class/secondClass";
 import ThirdClass from "src/pages/class/thirdClass";
 import SignIn from "src/pages/auth/signin/index";
-import CheckStudent from "src/pages/student";
 import SignUp from "src/pages/auth/signup";
 import FindAuth from "src/pages/auth/signup/findAuth";
 

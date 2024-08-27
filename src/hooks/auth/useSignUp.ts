@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CONFIG from "src/config/config.json";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -14,6 +14,7 @@ interface Type {
 
 const UseSignUp = () => {
   const [signup, setSignUp] = useState<Type>({ email: "", password: "", name: "", department: "" });
+
   const { pwreg } = SignUpvalidation();
 
   const navigate = useNavigate();
@@ -31,9 +32,9 @@ const UseSignUp = () => {
 
   const SignUpButton = async () => {
     const password = document.getElementById("password") as HTMLInputElement;
-    const check = document.getElementById("check") as HTMLInputElement;
+    const pwcheck = document.getElementById("check") as HTMLInputElement;
     const pwValue = password?.value;
-    const checkValue = check?.value;
+    const checkValue = pwcheck?.value;
 
     if (signup.password === "") {
       alert("비밀번호를 입력해주세요");
@@ -61,6 +62,7 @@ const UseSignUp = () => {
 
   return {
     SignUpHandle,
+
     signup,
     SignUpButton,
   };
