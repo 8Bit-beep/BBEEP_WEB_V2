@@ -18,22 +18,11 @@ const Modal = ({ onClick, cls }: Props) => {
             <S.ModalTitleWrapper></S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
-            <S.ListItem>
-              <span>서영우</span>
-              <span>2113</span>
-            </S.ListItem>
-            <S.ListItem>
-              <span>서영우</span>
-              <span>2113</span>
-            </S.ListItem>
-            <S.ListItem>
-              <span>서영우</span>
-              <span>2113</span>
-            </S.ListItem>
-            <S.ListItem>
-              <span>서영우</span>
-              <span>2113</span>
-            </S.ListItem>
+            {cls.map((item, idx) => (
+              <S.ListItem key={idx}>
+                {item.cls} 학년 {item.grade} 반 {item.name}
+              </S.ListItem>
+            ))}
           </S.ModalListWrapper>
         </S.ModalMainWrapper>
       </S.ModalWrapper>

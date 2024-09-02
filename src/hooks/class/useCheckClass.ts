@@ -4,7 +4,6 @@ import { Code } from "src/pages/class/data";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ClassResponse, ClassResponseType } from "src/types/class/class.type";
-import Modal from "@src/modal";
 const useCheckClass = () => {
   const location = useLocation();
 
@@ -38,7 +37,7 @@ const useCheckClass = () => {
 
   const codeEntries = Object.entries(Code);
 
-  const CodeValueArray: Array<{ key: string; value: string }> = [];
+  let CodeValueArray: Array<{ key: string; value: string }> = [];
 
   if (location.pathname.substring(13, 18) === "first") {
     const FirstFilterCode = codeEntries.filter(([key, value]) => value.startsWith("1"));
@@ -50,6 +49,7 @@ const useCheckClass = () => {
     const ThirdFilterCode = codeEntries.filter(([key, value]) => value.startsWith("3"));
     CodeValueArray.push(...ThirdFilterCode.map(([key, value]) => ({ key, value })));
   }
+
 
   return {
     CodeValueArray,

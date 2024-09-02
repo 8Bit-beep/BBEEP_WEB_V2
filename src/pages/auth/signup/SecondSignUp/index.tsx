@@ -2,13 +2,19 @@ import * as S from "../style";
 import { SetStateAction, Dispatch } from "react";
 import Logo from "src/assets/auth/signup/BbeepLogo.svg";
 import UseSignUp from "src/hooks/auth/useSignUp";
+import Back from "src/assets/auth/signup/BackButton.svg";
 
-const SecondSignUp = () => {
+interface Props {
+  setNext: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SecondSignUp = ({ setNext }: Props) => {
   const { SignUpHandle, signup, SignUpButton } = UseSignUp();
 
   return (
     <S.SignUpWrapper>
       <S.SignUpMainWrapper>
+        <S.BackButton src={Back} onClick={() => setNext(true)} />
         <S.ContentWrapper>
           <S.BbeepLogo src={Logo} />
           <S.InputWrapper>
@@ -20,7 +26,6 @@ const SecondSignUp = () => {
               id="password"
               value={signup.password}
             />
-
             <S.PwCheckInput placeholder="비밀번호를 확인해주세요" id="check" name="check" />
             <S.SignUpButton onClick={SignUpButton}>회원가입</S.SignUpButton>
           </S.InputWrapper>

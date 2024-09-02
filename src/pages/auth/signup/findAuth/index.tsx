@@ -1,32 +1,11 @@
-import * as S from "../style";
-import Back from "src/assets/auth/signup/BackButton.svg";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import FindAuth1 from "./findAuth1";
+import FindAuth2 from "./findAuth2";
 
 const FindAuth = () => {
-  const naviagate = useNavigate();
-  const BackButton = () => {
-    naviagate("/sign-in");
-  };
-  return (
-    <S.Wrapper>
-      <S.SignUpWrapper>
-        <S.SignUpMainWrapper>
-          <S.BackButton src={Back} onClick={BackButton} />
-          <S.ContentWrapper>
-            <S.TitleSpan>비밀번호 찾기</S.TitleSpan>
-            <S.EmailWrap>
-              <S.EmailCheckInput placeholder="이메일을 입력하세요" />
-              <S.EmailCheckButton>확인</S.EmailCheckButton>
-            </S.EmailWrap>
-            <S.CheckNumInput placeholder="인증번호 입력 해주세요" />
-            <S.PassWordInput placeholder="비밀번호 입력 해주세요" />
-            <S.CheckPwInput placeholder="비밀번호 재입력 해주세요" />
-            <S.FindCheckButton>확인</S.FindCheckButton>
-          </S.ContentWrapper>
-        </S.SignUpMainWrapper>
-      </S.SignUpWrapper>
-    </S.Wrapper>
-  );
+  const [next, setNext] = useState<boolean>(false);
+
+  return <div>{next === false ? <FindAuth1 setNext={setNext} /> : <FindAuth2 setNext={setNext}/>}</div>;
 };
 
 export default FindAuth;

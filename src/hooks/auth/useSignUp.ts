@@ -50,7 +50,7 @@ const UseSignUp = () => {
           name: NameStore,
           department: DepartMentStore,
         });
-        if (res.status === 201) {
+        if (res.status === 200) {
           alert("회원가입 성공");
           navigate("/sign-in");
         }
@@ -62,7 +62,6 @@ const UseSignUp = () => {
 
   return {
     SignUpHandle,
-
     signup,
     SignUpButton,
   };

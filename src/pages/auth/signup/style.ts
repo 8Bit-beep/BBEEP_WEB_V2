@@ -84,7 +84,7 @@ export const EmailWrap = styled.div`
 
 export const EmailCheckInput = styled.input`
   width: 69%;
-  height: 100%;
+  height: 64px;
   border: 2px solid #979797;
   border-radius: 8px;
   padding-left: 6%;
@@ -93,7 +93,7 @@ export const EmailCheckInput = styled.input`
 
 export const EmailCheckButton = styled.button`
   width: 20%;
-  height: 100%;
+  height: 64px;
   background-color: #434f5e;
   font-size: 1rem;
   color: white;

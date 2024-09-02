@@ -1,7 +1,11 @@
 import useSignIn from "src/hooks/auth/useSignIn";
 import * as S from "./style";
+import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const { userHandle, SignInButton, user } = useSignIn();
+
+  const navigate = useNavigate();
+
   return (
     <div>
       <S.Wrapper>
@@ -28,6 +32,10 @@ const SignIn = () => {
             </S.SiginInputWrapper>
             <S.ButtonWrapper>
               <S.SignInButton onClick={SignInButton}>로그인</S.SignInButton>
+              <S.NavigateWrapper>
+                <S.StyleSpan onClick={() => navigate("/sign-up")}>계정이 없으신가요?</S.StyleSpan>
+                <S.StyleSpan onClick={() => navigate("/find")}>비밀번호를 잊어버렸나요?</S.StyleSpan>
+              </S.NavigateWrapper>
             </S.ButtonWrapper>
           </S.SingInContentWrapper>
         </S.SignInWrapper>

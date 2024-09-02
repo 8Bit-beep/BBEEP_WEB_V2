@@ -127,3 +127,17 @@ export const SignInButton = styled.button`
   font-size: 1.2rem;
 `;
 
+export const NavigateWrapper = styled.div`
+  width: 100%;
+  height: 10%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const StyleSpan = styled.span`
+  font-size: 1rem;
+  color: #acadae;
+  
+`;

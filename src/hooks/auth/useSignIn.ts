@@ -3,6 +3,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "src/constants/token.constants";
 import token from "src/libs/token/token";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   id: string | undefined;
@@ -10,13 +11,13 @@ interface User {
 }
 const useSignIn = () => {
   const [user, setUser] = useState<User>({ id: "", password: "" });
-
+  const navigate = useNavigate();
   const userHandle = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>): void => {
       const { value, name } = e.target;
       setUser((prev) => ({ ...prev, [name]: value }));
     },
-    [setUser],
+    [setUser]
   );
 
   const SignInButton = async () => {
@@ -27,18 +28,17 @@ const useSignIn = () => {
           password: user.password,
           authority: "TEACHER",
         })
-        .then((res) => {  
+        .then((res) => {
           alert("로그인 성공");
           token.setToken(ACCESS_TOKEN_KEY, res.data.data.accessToken);
           token.setToken(REFRESH_TOKEN_KEY, res.data.data.refreshToken);
+          navigate("/check-student/first-grade");
         })
         .catch((error) => {
           console.error(error);
         });
     } else {
       alert("아이디와 비밀번호를 입력해주세요");
-      
-
     }
   };
 
