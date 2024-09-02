@@ -24,8 +24,6 @@ const useCheckClass = () => {
     setCode(item);
   };
 
-  const ModalClick = () => {};
-
   const ClassList = async () => {
     try {
       const res = await axios.get<ClassResponse>(`${CONFIG.serverUrl}/student/attend-list?code=${code}`);
@@ -50,7 +48,6 @@ const useCheckClass = () => {
     CodeValueArray.push(...ThirdFilterCode.map(([key, value]) => ({ key, value })));
   }
 
-
   return {
     CodeValueArray,
     ItemClick,
@@ -59,7 +56,6 @@ const useCheckClass = () => {
     code,
     setCode,
     ClassList,
-    ModalClick,
     cls,
   };
 };

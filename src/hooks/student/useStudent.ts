@@ -1,9 +1,5 @@
-import { useGetClassMembers } from "src/services/student/queries";
 import { useState, useCallback } from "react";
-import { sidebarMenuStore } from "src/stores/common/student.store";
 import { ClassMemberResponse } from "src/types/student/student.type";
-import { ClassMemberType } from "src/types/student/student.type";
-import { useGetClassMemberMutation } from "src/services/student/mutation";
 import { useLocation } from "react-router-dom";
 import { converUrlToGrade } from "src/utils/transform/urlTransform";
 import axios from "axios";
@@ -34,7 +30,7 @@ const useStudent = () => {
           });
       } catch (error) {}
     },
-    [setItem],
+    [setItem]
   );
   return {
     item,
