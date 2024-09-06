@@ -38,6 +38,7 @@ jobs:
           host: ${{ secrets.HOST_PROD }}
           username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
           envs: GITHUB_SHA
           script: |
             docker stop beep_web || true
