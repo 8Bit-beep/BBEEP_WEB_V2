@@ -4,6 +4,8 @@ import { Code } from "src/pages/class/data";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ClassResponse, ClassResponseType } from "src/types/class/class.type";
+import token from "src/libs/token/token";
+import { ACCESS_TOKEN_KEY } from "src/constants/token.constants";
 const useCheckClass = () => {
   const location = useLocation();
 
@@ -26,7 +28,11 @@ const useCheckClass = () => {
 
   const ClassList = async () => {
     try {
-      const res = await axios.get<ClassResponse>(`${CONFIG.serverUrl}/student/attend-list?code=${code}`);
+      const res = await axios.get<ClassResponse>(`${CONFIG.serverUrl}/student/attend-list?code=${code}`, {
+        headers: {
+          Authorization: `Bearer ${token.getToken(ACCESS_TOKEN_KEY)}`,
+        },
+      });
       setCls(res.data.data);
     } catch (error) {
       console.error(error);
@@ -36,16 +42,20 @@ const useCheckClass = () => {
   const codeEntries = Object.entries(Code);
 
   let CodeValueArray: Array<{ key: string; value: string }> = [];
+  
 
   if (location.pathname.substring(13, 18) === "first") {
     const FirstFilterCode = codeEntries.filter(([key, value]) => value.startsWith("1"));
     CodeValueArray.push(...FirstFilterCode.map(([key, value]) => ({ key, value })));
+  
   } else if (location.pathname.substring(13, 19) === "second") {
     const SecondFilterCode = codeEntries.filter(([key, value]) => value.startsWith("2"));
     CodeValueArray.push(...SecondFilterCode.map(([key, value]) => ({ key, value })));
+   
   } else if (location.pathname.substring(13, 18) === "third") {
     const ThirdFilterCode = codeEntries.filter(([key, value]) => value.startsWith("3"));
     CodeValueArray.push(...ThirdFilterCode.map(([key, value]) => ({ key, value })));
+   
   }
 
   return {
@@ -57,6 +67,7 @@ const useCheckClass = () => {
     setCode,
     ClassList,
     cls,
+
   };
 };
 

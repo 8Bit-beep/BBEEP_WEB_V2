@@ -6,8 +6,9 @@ import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 
 const SecondClass = () => {
-  const { CodeValueArray, modal, style, ItemClick, cls, ClassList, } = useCheckClass();
+  const { CodeValueArray, modal, style, ItemClick, cls } = useCheckClass();
   console.log(CodeValueArray);
+  const Title = CodeValueArray.map((item) => item.key);
 
   return (
     <ModalPortal>
@@ -25,7 +26,7 @@ const SecondClass = () => {
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>
-        {modal === true ? <Modal onClick={ItemClick} cls={cls}></Modal> : <></>}
+        {modal === true ? <Modal title={Title} onClick={ItemClick} cls={cls}></Modal> : <></>}
       </S.CheckClassWrapper>
     </ModalPortal>
   );

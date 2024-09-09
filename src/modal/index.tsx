@@ -6,19 +6,17 @@ interface Props {
   onClick: (itme: string) => void;
 
   cls: ClassResponseType[];
- 
+  title: string[];
 }
 
-const Modal = ({ onClick, cls}: Props) => {
+const Modal = ({ onClick, cls, title }: Props) => {
   return (
     <S.Wrapper>
       <S.ModalWrapper>
         <S.ModalMainWrapper>
           <S.HeaderLineWrapper>
             <img style={{ width: 40, height: 40 }} src={Back} onClick={() => onClick("back")} />
-            <S.ModalTitleWrapper>
-              
-            </S.ModalTitleWrapper>
+            <S.ModalTitleWrapper>{title}</S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
             {cls.map((item, idx) => (

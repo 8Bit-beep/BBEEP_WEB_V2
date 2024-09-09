@@ -1,11 +1,11 @@
-import { create } from "zustand";
+import create from 'zustand';
 
-interface ClassTitle {
-  title: Array<{ key: string; value: string }>;
-  setTitle: (title: Array<{ key: string; value: string }>) => void;
+interface ClassState {
+  codeValueArray: Array<{ key: string; value: string }>;
+  setCodeValueArray: (newArray: Array<{ key: string; value: string }>) => void;
 }
 
-export const ClassTitleStore = create<ClassTitle>((set) => ({
-  title: [],
-  setTitle: (title: Array<{ key: string; value: string }>) => set(() => ({ title })),
+export const useClassStore = create<ClassState>((set) => ({
+  codeValueArray: [],
+  setCodeValueArray: (newArray) => set({ codeValueArray: newArray }),
 }));
