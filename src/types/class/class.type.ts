@@ -8,3 +8,8 @@ export interface ClassResponseType {
   cls: number;
   num: number;
 }
+
+export interface FloorResponseType {
+  code: string;
+  name: string;
+}

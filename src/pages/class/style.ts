@@ -5,6 +5,7 @@ export const CheckClassWrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-size: cover;
 `;
 
 export const MainWrapper = styled.div`

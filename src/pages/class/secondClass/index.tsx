@@ -4,10 +4,21 @@ import * as S from "../style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
+import UseCheckFloor from "src/hooks/class/useCheckFloor";
+import { useEffect } from "react";
 
 const SecondClass = () => {
-  const { CodeValueArray, modal, style, ItemClick, cls, ClassList, } = useCheckClass();
-  console.log(CodeValueArray);
+  const {  modal, style, ItemClick, cls, ClassList } = useCheckClass();
+  const { setFloor, classData } = UseCheckFloor();
+  const FloorData = "2";
+
+  const ListTitle = classData.map((item) => {
+    return item.name;
+  });
+
+  useEffect(() => {
+    setFloor(FloorData);
+  }, []);
 
   return (
     <ModalPortal>
@@ -17,15 +28,19 @@ const SecondClass = () => {
           <Sidebar />
           <S.ContentWrapper>
             <S.ContentMainWrapper>
-              {CodeValueArray.map((item, idx) => (
-                <S.ClassItem onClick={() => ItemClick(item.value)} clicked={style === item.value ? true : false}>
-                  <S.ItemContentWrap>{item.key}</S.ItemContentWrap>
+              {classData.map((item, idx) => (
+                <S.ClassItem
+                  key={idx}
+                  onClick={() => item && ItemClick(item.code)}
+                  clicked={style === item.code ? true : false}
+                >
+                  <S.ItemContentWrap>{item.name}</S.ItemContentWrap>
                 </S.ClassItem>
               ))}
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>
-        {modal === true ? <Modal onClick={ItemClick} cls={cls}></Modal> : <></>}
+        {modal === true ? <Modal title={ListTitle} onClick={ItemClick} cls={cls}></Modal> : <></>}
       </S.CheckClassWrapper>
     </ModalPortal>
   );
