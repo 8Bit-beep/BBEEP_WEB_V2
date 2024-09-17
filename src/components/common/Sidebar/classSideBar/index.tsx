@@ -8,7 +8,7 @@ import Three from "src/assets/3.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseSideBarNavigation from "src/utils/common/sidebarNavigation";
 
-const Sidebar = () => {
+const ClassSidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -48,17 +48,25 @@ const Sidebar = () => {
           <span>실 조회햐기</span>
         </S.MenuTitle>
         <S.MenuItem style={{ minHeight: "75%" }}>
-          <S.Item onClick={() => handleCategoryClick("1층")} $isclicked={isClickCategory === "1층" ? "true" : "false"}>
+          <S.Item
+          onClick={() => handleCategoryClick("1층")} 
+          $isclicked={isClickCategory === "1층" ? "true" : "false"}>
             <img src={One} />
             <span>1층</span>
           </S.Item>
-          <S.Item onClick={() => handleCategoryClick("2층")} $isclicked={isClickCategory === "2층" ? "true" : "false"}>
+          <S.Item
+          onClick={() => handleCategoryClick("2층")}  
+          $isclicked={isClickCategory === "2층" ? "true" : "false"}>
             <img src={Two} />
             <span>2층</span>
           </S.Item>
-          <S.Item onClick={() => handleCategoryClick("3층")} $isclicked={isClickCategory === "3층" ? "true" : "false"}>
+          <S.Item
+          onClick={() => handleCategoryClick("3층")}  
+          $isclicked={isClickCategory === "3층" ? "true" : "false"}>
             <img src={Three} />
             <span>3층</span>
+
+
           </S.Item>
         </S.MenuItem>
       </S.MenuWrap>
@@ -66,4 +74,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default ClassSidebar;

@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
 import * as S from "./style";
 import Header from "src/components/common/Header/index.tsx";
-import Sidebar from "src/components/common/Sidebar/index.tsx";
-import ClassSidebar from "src/components/common/Sidebar/classSidebar/index.tsx";
 import useStudent from "src/hooks/student/useStudent.ts";
 import { memberListStroe } from "src/stores/common/student.store";
-
+import StudentSidebar from "src/components/common/Sidebar/studentSidebar";
+import DefaultSideBar from "src/components/common/Sidebar/defaultSideBar/index";
 const CheckStudent = () => {
   // const { ...student } = useStudent();
   // const { memberList } = useStudent();
@@ -14,9 +12,9 @@ const CheckStudent = () => {
     <S.CheckStudentWrap>
       <Header />
       <S.Main>
-        <Sidebar />
+        <DefaultSideBar />
         <S.MainView>
-          <ClassSidebar />
+          <StudentSidebar />
           <S.ViewStudentWrap>
             <S.StudentLayer>
               <span>이름</span>
