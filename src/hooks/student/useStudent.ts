@@ -1,39 +1,34 @@
-import { useGetClassMembers } from "src/services/student/queries";
-import { useState, useCallback } from "react";
-import { sidebarMenuStore } from "src/stores/common/student.store";
-import { ClassMemberResponse } from "src/types/student/student.type";
+import { useState, useCallback, useRef } from "react";
+import { ClassMemberType } from "src/types/student/student.type";
 import { useLocation } from "react-router-dom";
 import { converUrlToGrade } from "src/utils/transform/urlTransform";
-import axios from "axios";
-import CONFIG from "src/config/config.json";
 import token from "src/libs/token/token";
 import { ACCESS_TOKEN_KEY } from "src/constants/token.constants";
+import { bbeepAxios } from "src/libs/axios/customAxios";
+import { memberListStroe } from "src/stores/common/student.store";
 
 const useStudent = () => {
   const [item, setItem] = useState<number>(1);
-  const [memberList, setMemberList] = useState<ClassMemberResponse>();
+  const [memberList, setMemberList] = useState<ClassMemberType[]>([]);
   const { pathname } = useLocation();
+  const setMemberListStore = memberListStroe((state) => state.setMemberList);
 
-  const handleClass = useCallback(
-    async (item: number) => {
-      setItem(item);
-      const grade = Number(converUrlToGrade(pathname));
-      try {
-        await axios
-          .get(`${CONFIG.serverUrl}/student/member-list?grade=${grade}&cls=${item}`, {
-            headers: {
-              Authorization: `Bearer ${token.getToken(ACCESS_TOKEN_KEY)}`,
-            },
-          })
-          .then((res) => {
-            console.log(res.data);
+  const handleClass = async (item: number) => {
+    setItem(item);
 
-            setMemberList(res.data);
-          });
-      } catch (error) {}
-    },
-    [setItem],
-  );
+    const grade = Number(converUrlToGrade(pathname));
+    await bbeepAxios
+      .get(`/student/member-list?grade=${grade}&cls=${item}`, {
+        headers: {
+          Authorization: `Bearer ${token.getToken(ACCESS_TOKEN_KEY)}`,
+        },
+      })
+      .then((res) => {
+        setMemberList(res.data.data);
+      });
+  };
+  setMemberListStore(memberList);
+
   return {
     item,
     memberList,

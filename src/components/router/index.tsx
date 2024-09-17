@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "../../styles/global.ts";
 import { StyleSheetManager } from "styled-components";
 import SignIn from "src/pages/auth/signIn";
-import CheckStudent from "../../pages/student/index.tsx"
+import CheckStudent from "../../pages/student/index.tsx";
 
 const Router = () => {
   return (
@@ -11,7 +11,7 @@ const Router = () => {
         <GlobalStyles />
         <Routes>
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/check-student/first-grade" element={<CheckStudent />} />
+          <Route path="/check-student/*" element={<CheckStudent />} />
         </Routes>
       </BrowserRouter>
     </StyleSheetManager>

@@ -1,8 +1,8 @@
-import { ClassMemberParams, ClassMemberResponse } from "src/types/student/student.type";
+import { ClassMemberParams, ClassMemberType } from "src/types/student/student.type";
 import { bbeepAxios } from "src/libs/axios/customAxios";
 
 class StudentApi {
-  public async getClassMember(params: ClassMemberParams): Promise<ClassMemberResponse> {
+  public async getClassMember(params: ClassMemberParams): Promise<ClassMemberType> {
     const { grade, cls } = params;
     const { data } = await bbeepAxios.get(`/student/member-list?grade=${grade}&cls=${cls}`);
     return data;

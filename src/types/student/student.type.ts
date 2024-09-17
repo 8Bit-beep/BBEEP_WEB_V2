@@ -1,14 +1,11 @@
 import { BaseResponse } from "../util/response.type";
 
-export interface ClassMemberResponse extends BaseResponse {
-  data: ClassMemberType[];
-}
-
 export interface ClassMemberType {
   name: string;
   num: number;
-  roomName: string;
-  room: string;
+  roomName: number;
+  floor: number;
+  modifiedData: Date;
 }
 
 export interface ClassMemberParams {

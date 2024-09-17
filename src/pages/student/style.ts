@@ -23,7 +23,7 @@ export const MainView = styled.div`
 `;
 
 export const ViewStudentWrap = styled.div`
-  width: 86%;
+  width: 90% !important;
   height: calc(100vh - 100px);
   min-height: calc(100vh - 100px);
 
@@ -32,7 +32,7 @@ export const ViewStudentWrap = styled.div`
 
   gap: 10px;
 
-  overflow: scroll;
+  overflow-y: scroll;
 
   background: #f1f1f1;
 `;
