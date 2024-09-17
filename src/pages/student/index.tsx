@@ -1,10 +1,13 @@
 import * as S from "./style";
 import Header from "src/components/common/Header/index.tsx";
 import useStudent from "src/hooks/student/useStudent.ts";
+import { memberListStroe } from "src/stores/common/student.store";
 import StudentSidebar from "src/components/common/Sidebar/studentSidebar";
 import DefaultSideBar from "src/components/common/Sidebar/defaultSideBar/index";
 const CheckStudent = () => {
-  const { ...student } = useStudent();
+  // const { ...student } = useStudent();
+  // const { memberList } = useStudent();
+  const memberList = memberListStroe((state) => state.memberList);
   return (
     <S.CheckStudentWrap>
       <Header />
@@ -19,10 +22,11 @@ const CheckStudent = () => {
               <span>층</span>
               <span>실</span>
             </S.StudentLayer>
-            {student.memberList?.data.map((item, idx) => (
+            {memberList?.map((item, idx) => (
               <S.StudentLayer key={idx}>
                 <span>{item.name}</span>
                 <span>{item.num}</span>
+                <span>{item.floor}</span>
                 <span>{item.roomName}</span>
               </S.StudentLayer>
             ))}
