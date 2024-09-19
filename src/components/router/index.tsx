@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "../../styles/global.ts";
 import { StyleSheetManager } from "styled-components";
-import SignIn from "src/pages/auth/signIn";
+import SignIn from "src/pages/auth/signin/index.tsx"
 import CheckStudent from "../../pages/student/index.tsx";
 import FirstClass from "src/pages/class/firstClass";
 import SecondClass from "src/pages/class/secondClass";
