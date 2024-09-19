@@ -16,7 +16,7 @@ const Modal = ({ onClick, cls, title }: Props) => {
         <S.ModalMainWrapper>
           <S.HeaderLineWrapper>
             <img style={{ width: 40, height: 40 }} src={Back} onClick={() => onClick("back")} />
-            <S.ModalTitleWrapper>{title}</S.ModalTitleWrapper>
+            <S.ModalTitleWrapper></S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
             {cls.map((item, idx) => (
