@@ -45,7 +45,7 @@ const ClassSidebar = () => {
         </S.MenuItem>
         <S.MenuTitle>
           <img src={SidebarLab} />
-          <span>실 조회햐기</span>
+          <span>실 조회하기</span>
         </S.MenuTitle>
         <S.MenuItem style={{ minHeight: "75%" }}>
           <S.Item
