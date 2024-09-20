@@ -2,6 +2,7 @@ import { ClassResponseType } from "src/types/class/class.type";
 import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
 
+
 interface Props {
   onClick: (itme: string) => void;
 
@@ -19,9 +20,9 @@ const Modal = ({ onClick, cls, title }: Props) => {
             <S.ModalTitleWrapper></S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
-            {cls.map((item, idx) => (
-              <S.ListItem key={idx}>
-                {item.cls} 학년 {item.grade} 반 {item.name}
+            {cls.map((item) => (
+              <S.ListItem>
+                {item.cls} 학년 {item.grade} 반 {item.num} 번 {item.name}
               </S.ListItem>
             ))}
           </S.ModalListWrapper>
