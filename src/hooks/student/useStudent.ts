@@ -28,6 +28,7 @@ const useStudent = () => {
       });
   };
   setMemberListStore(memberList);
+
   return {
     item,
     memberList,
