@@ -50,14 +50,18 @@ export const HeaderLineWrapper = styled.div`
   margin-bottom: 2%;
 `;
 
-export const ModalListWrapper = styled.div`
+export const ModalListWrapper = styled.div<{ isManaged?: boolean }>`
   width: 100%;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 5.95%;
   align-self: center;
   overflow-y: scroll;
+  gap: 10px 5.25%;
+  justify-content: center;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 export const ListItem = styled.div`
@@ -69,4 +73,13 @@ export const ListItem = styled.div`
   box-shadow: 1px 1px 12px 1px rgba(0, 0, 0, 0.1);
   justify-content: space-evenly;
   align-items: center;
+`;
+
+export const ManageListItem = styled.div`
+  display: flex;
+  width: 40%;
+  height: 50px;
+  background-color: #fff;
+  align-items: center;
+  flex-direction: row;
 `;

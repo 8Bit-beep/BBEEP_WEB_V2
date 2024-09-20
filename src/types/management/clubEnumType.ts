@@ -1,0 +1,1 @@
+export type ClubEnumType = "BIND" | "DUCAMI" | "CNS" | "ALT" | "D3" | "MODI" | "DION" | "AND" | "COMMAND" | "DGSW42"

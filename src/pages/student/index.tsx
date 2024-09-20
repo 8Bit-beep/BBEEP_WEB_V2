@@ -1,6 +1,6 @@
 import * as S from "./style";
-import Header from "src/components/common/Header/index.tsx";
-import useStudent from "src/hooks/student/useStudent.ts";
+import Header from "src/components/common/Header/index";
+import useStudent from "src/hooks/student/useStudent";
 import { memberListStroe } from "src/stores/common/student.store";
 import StudentSidebar from "src/components/common/Sidebar/studentSidebar";
 import DefaultSideBar from "src/components/common/Sidebar/defaultSideBar/index";
