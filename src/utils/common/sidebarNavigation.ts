@@ -39,6 +39,18 @@ const UseSideBarNavigation = ({ location, navigate }: NavigationProps) => {
           setIsClickCategory("3층");
           setMenu(isClickCategory);
           break;
+        case "/check-management/second-floor":
+          setIsClickCategory("2출석");
+          setMenu(isClickCategory);
+          break;
+        case "/check-management/third-floor":
+          setIsClickCategory("3출석");
+          setMenu(isClickCategory);
+          break;
+        case "/check-management/all-floor":
+          setIsClickCategory("전출석");
+          setMenu(isClickCategory);
+          break;
         default:
           setIsClickCategory("");
           break;
@@ -68,6 +80,15 @@ const UseSideBarNavigation = ({ location, navigate }: NavigationProps) => {
         break;
       case "3층":
         navigate("/check-class/third-floor");
+        break;
+      case "2출석":
+        navigate("/check-management/second-floor");
+        break;
+      case "3출석":
+        navigate("/check-management/third-floor");
+        break;
+      case "전출석":
+        navigate("/check-management/all-floor");
         break;
       default:
         navigate("");
