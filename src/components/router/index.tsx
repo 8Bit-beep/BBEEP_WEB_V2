@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { GlobalStyles } from "../../styles/global.ts";
+import { GlobalStyles } from "../../styles/global";
 import { StyleSheetManager } from "styled-components";
-import SignIn from "src/pages/auth/signIn";
-import CheckStudent from "../../pages/student/index.tsx";
+import SignIn from "src/pages/auth/signin/index";
+import CheckStudent from "../../pages/student/index";
 import FirstClass from "src/pages/class/firstClass";
 import SecondClass from "src/pages/class/secondClass";
 import ThirdClass from "src/pages/class/thirdClass";
 import SignUp from "src/pages/auth/signup";
 import FindAuth from "src/pages/auth/signup/findAuth";
+import Management from "src/pages/management";
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
           <Route path="/check-class/first-floor" element={<FirstClass />} />
           <Route path="/check-class/second-floor" element={<SecondClass />} />
           <Route path="/check-class/third-floor" element={<ThirdClass />} />
+          <Route path="/check-management/*" element={<Management />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/find" element={<FindAuth />} />
         </Routes>

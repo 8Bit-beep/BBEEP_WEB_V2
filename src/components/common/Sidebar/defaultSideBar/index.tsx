@@ -5,6 +5,7 @@ import SidebarLab from "src/assets/common/SidebarLab.svg";
 import One from "src/assets/common/1.svg";
 import Two from "src/assets/common/2.svg";
 import Three from "src/assets/common/3.svg";
+import Check from "src/assets/common/check.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseSideBarNavigation from "src/utils/common/sidebarNavigation";
 
@@ -59,6 +60,24 @@ const Sidebar = () => {
           <S.Item onClick={() => handleCategoryClick("3층")} $isclicked={isClickCategory === "3층" ? "true" : "false"}>
             <img src={Three} />
             <span>3층</span>
+          </S.Item>
+        </S.MenuItem>
+        <S.MenuTitle>
+          <img src={Check} />
+          <span>출석 체크하기</span>
+        </S.MenuTitle>
+        <S.MenuItem style={{ minHeight: "75%" }}>
+          <S.Item onClick={() => handleCategoryClick("2출석")} $isclicked={isClickCategory === "2출석" ? "true" : "false"}>
+            <img src={Two} />
+            <span>2층</span>
+          </S.Item>
+          <S.Item onClick={() => handleCategoryClick("3출석")} $isclicked={isClickCategory === "3출석" ? "true" : "false"}>
+            <img src={Three} />
+            <span>3층</span>
+          </S.Item>
+          <S.Item onClick={() => handleCategoryClick("전출석")} $isclicked={isClickCategory === "전출석" ? "true" : "false"}>
+            <img src={Check} />
+            <span>전체</span>
           </S.Item>
         </S.MenuItem>
       </S.MenuWrap>
