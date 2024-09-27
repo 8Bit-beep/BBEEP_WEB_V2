@@ -27,7 +27,7 @@ const UseSignUp = () => {
       const { value, name } = e.target;
       setSignUp((prev) => ({ ...prev, [name]: value }));
     },
-    [setSignUp]
+    [setSignUp],
   );
 
   const SignUpButton = async () => {
@@ -44,11 +44,11 @@ const UseSignUp = () => {
       alert("영문,숫자, 특수문자 조합으로 이루어진 8~15자의 비밀번호를 정해주세요");
     } else {
       try {
-        const res = await axios.post(`${CONFIG.serverUrl}/auth/sign-up/teacher`, {
+        const res = await axios.post(`${CONFIG.serverUrl}/auth/sign-up`, {
           email: EmailStore,
           password: signup.password,
           name: NameStore,
-          department: DepartMentStore,
+          authority: "TEACHER",
         });
         if (res.status === 200) {
           alert("회원가입 성공");

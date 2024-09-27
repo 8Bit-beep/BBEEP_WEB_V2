@@ -4,8 +4,9 @@ import * as S from "../style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
-import UseCheckFloor from "src/hooks/class/useCheckFloor"
+import UseCheckFloor from "src/hooks/class/useCheckFloor";
 import { useEffect } from "react";
+import { FIRST_FLOOR_INFO } from "src/constants/room.constants";
 
 const FirstClass = () => {
   const { modal, style, ItemClick, cls } = useCheckClass();
@@ -17,7 +18,7 @@ const FirstClass = () => {
     setFloor(FloorData);
   }, []);
 
-  const ListTitle = classData.map((item) => {
+  const ListTitle = FIRST_FLOOR_INFO.map((item) => {
     return item.name;
   });
 
@@ -29,15 +30,17 @@ const FirstClass = () => {
           <Sidebar />
           <S.ContentWrapper>
             <S.ContentMainWrapper>
-              {classData.map((item, idx) => (
-                <S.ClassItem
-                  key={idx}
-                  onClick={() => item && ItemClick(item.code)}
-                  clicked={style === item.code ? true : false}
-                >
-                  <S.ItemContentWrap>{item.name}</S.ItemContentWrap>
-                </S.ClassItem>
-              ))}
+              {FIRST_FLOOR_INFO.map((item, idx) => {
+                return (
+                  <S.ClassItem
+                    key={idx}
+                    onClick={() => item && ItemClick(item.code)}
+                    clicked={style === item.code ? true : false}
+                  >
+                    <S.ItemContentWrap>{item.name}</S.ItemContentWrap>
+                  </S.ClassItem>
+                );
+              })}
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>
