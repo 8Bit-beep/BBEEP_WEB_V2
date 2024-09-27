@@ -26,7 +26,6 @@ const useSignIn = () => {
         .post(`${CONFIG.serverUrl}/auth/sign-in`, {
           email: user.id,
           password: user.password,
-          authority: "TEACHER",
         })
         .then((res) => {
           alert("로그인 성공");
