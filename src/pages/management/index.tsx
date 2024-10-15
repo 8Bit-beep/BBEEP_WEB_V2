@@ -59,11 +59,10 @@ const Management = () => {
     <ModalPortal>
       <S.CheckClassWrapper>
         <Header />
-
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
-            <CsvData csvData={csvData} fileName="출석기록" />
+            {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName="출석기록" />}
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem
