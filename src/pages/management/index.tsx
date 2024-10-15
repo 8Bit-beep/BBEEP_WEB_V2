@@ -45,7 +45,7 @@ const Management = () => {
       }
     }
   }, [pathname]);
-  console.log("renderList",memberList)
+  console.log("renderList", memberList);
 
   return (
     <ModalPortal>

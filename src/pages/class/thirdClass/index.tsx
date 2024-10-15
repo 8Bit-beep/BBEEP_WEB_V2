@@ -12,9 +12,7 @@ const ThirdClass = () => {
   const { setFloor, classData } = UseCheckFloor();
   const [title, setTitle] = useState<string>("");
   const FloorData = "3";
-  const ListTitle = classData.map((item) => {
-    return item.roomCode;
-  });
+
 
   useEffect(() => {
     setFloor(FloorData);
