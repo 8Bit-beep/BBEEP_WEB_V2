@@ -6,10 +6,12 @@ import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 import UseCheckFloor from "src/hooks/class/useCheckFloor";
 import { useEffect, useState } from "react";
+import UseFloorData from "src/hooks/management/useFloorData";
 
 const FirstClass = () => {
   const { modal, style, ItemClick, cls } = useCheckClass();
   const { setFloor, classData } = UseCheckFloor();
+
   const [title, setTitle] = useState<string>("");
 
   const FloorData = "1";
@@ -17,8 +19,6 @@ const FirstClass = () => {
   useEffect(() => {
     setFloor(FloorData);
   }, []);
-
-
 
   return (
     <ModalPortal>

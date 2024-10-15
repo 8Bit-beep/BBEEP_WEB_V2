@@ -9,7 +9,7 @@ interface CsvDataProps {
 const CsvData = ({ csvData, fileName }: CsvDataProps) => {
   return (
     <CsvLinkButton data={csvData} filename={fileName}>
-      <p>다운로드</p>
+      <p style={{ alignSelf: "center", color: "#fff" }}>다운로드</p>
     </CsvLinkButton>
   );
 };
@@ -17,10 +17,14 @@ const CsvData = ({ csvData, fileName }: CsvDataProps) => {
 export default CsvData;
 
 export const CsvLinkButton = styled(CSVLink)`
-  width: 100px;
-  height: 100px;
-  background-color: black;
-  border-radius: 5px;
-  color: #fff;
+  background-color: #3cb0b8;
+  width: 120px;
+  height: 35px;
+  border: 1px solid #fff;
   position: absolute;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 15px;
+  bottom: 100px;
+  right: 100px;
 `;

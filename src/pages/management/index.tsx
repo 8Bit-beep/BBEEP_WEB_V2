@@ -8,9 +8,13 @@ import { useCallback, useEffect, useState } from "react";
 import useManagement from "src/hooks/management/useManagement";
 import { useLocation } from "react-router-dom";
 import { ClassManagement } from "src/types/management/studentManagement.type";
+import UseFloorData from "src/hooks/management/useFloorData";
+import CsvData from "src/components/common/CsvData";
 
 const Management = () => {
   const { handleManagement, memberList } = useManagement();
+
+  const { setFloor, CsvFloorData, floor, floorData, csvData } = UseFloorData();
 
   const { pathname } = useLocation();
 
@@ -26,6 +30,7 @@ const Management = () => {
 
   useEffect(() => {
     setRenderMemberList(memberList);
+    CsvFloorData();
   }, [memberList]);
 
   useEffect(() => {
@@ -35,9 +40,11 @@ const Management = () => {
       switch (true) {
         case pathname.includes("second"):
           setRenderList(clubList[1]);
+          setFloor("2");
           break;
         case pathname.includes("third"):
           setRenderList(clubList[0]);
+          setFloor("3");
           break;
         case pathname.includes("all"):
           setRenderList(clubList.reduce((a, b) => a.concat(b), []));
@@ -45,20 +52,23 @@ const Management = () => {
       }
     }
   }, [pathname]);
-  console.log("renderList", memberList);
+
+  console.log("floorData", floorData);
 
   return (
     <ModalPortal>
       <S.CheckClassWrapper>
         <Header />
+
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
+            <CsvData csvData={csvData} fileName="출석기록" />
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem
                   onClick={() => {
-                    item != "3D" ? handleManagement(item) : handleManagement("D3");
+                    item !== "3D" ? handleManagement(item) : handleManagement("D3");
                     setRenderModal(true);
                     setRenderTitle(item);
                   }}
