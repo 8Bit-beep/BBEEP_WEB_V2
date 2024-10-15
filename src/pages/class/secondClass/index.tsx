@@ -5,16 +5,14 @@ import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 import UseCheckFloor from "src/hooks/class/useCheckFloor";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const SecondClass = () => {
   const { modal, style, ItemClick, cls, ClassList } = useCheckClass();
   const { setFloor, classData } = UseCheckFloor();
+  const [title, setTitle] = useState<string>("");
   const FloorData = "2";
 
-  const ListTitle = classData.map((item) => {
-    return item.name;
-  });
 
   useEffect(() => {
     setFloor(FloorData);
@@ -31,16 +29,19 @@ const SecondClass = () => {
               {classData.map((item, idx) => (
                 <S.ClassItem
                   key={idx}
-                  onClick={() => item && ItemClick(item.code)}
+                  onClick={() => {
+                    item && ItemClick(item.code);
+                    setTitle(item.roomCode);
+                  }}
                   clicked={style === item.code ? true : false}
                 >
-                  <S.ItemContentWrap>{item.name}</S.ItemContentWrap>
+                  <S.ItemContentWrap>{item.roomCode}</S.ItemContentWrap>
                 </S.ClassItem>
               ))}
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>
-        {modal === true ? <Modal title={ListTitle} onClick={ItemClick} cls={cls}></Modal> : <></>}
+        {modal === true ? <Modal title={title} onClick={ItemClick} cls={cls}></Modal> : <></>}
       </S.CheckClassWrapper>
     </ModalPortal>
   );

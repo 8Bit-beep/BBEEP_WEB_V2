@@ -11,5 +11,5 @@ export interface ClassResponseType {
 
 export interface FloorResponseType {
   code: string;
-  name: string;
+  roomCode: string;
 }
