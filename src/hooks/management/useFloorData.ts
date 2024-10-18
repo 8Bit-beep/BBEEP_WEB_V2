@@ -1,12 +1,10 @@
 import { CsvDataType, FloorDataType } from "src/types/management/csvDataType";
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 
 import { bbeepAxios } from "src/libs/axios/customAxios";
 
-interface Props {
-  floor: string;
-}
+
 
 const UseFloorData = () => {
   const [floorData, setFloorData] = useState<FloorDataType[]>([]);
