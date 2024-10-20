@@ -98,7 +98,7 @@ export const ManageListItem = styled.div`
   width: 100%;
   height: 80px;
   background-color: #fff;
-
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -106,7 +106,6 @@ export const ManageListItem = styled.div`
 export const ManageListContentItemWrapper = styled.div`
   width: 90%;
   height: auto;
-
   display: flex;
   justify-content: space-between;
 `;

@@ -1,9 +1,7 @@
 import { ClassResponseType } from "src/types/class/class.type";
 import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
-import { ClassManagement, ClassManagementResponse } from "src/types/management/studentManagement.type";
-import { useEffect, useState } from "react";
-import dayjs from "dayjs";
+import { ClassManagement } from "src/types/management/studentManagement.type";
 
 interface Props {
   onClick: (item: string) => void;
@@ -33,11 +31,13 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                     <S.TitleSpan>9교시 출석</S.TitleSpan>
                     <S.TitleSpan>10교시 출석</S.TitleSpan>
                     <S.TitleSpan>11교시 출석</S.TitleSpan>
+
                     <S.TitleSpan>출/결</S.TitleSpan>
                   </S.ManageListTitleContentWrapper>
                 </S.ManageListTitleWrapper>
-                <S.ManageListItem>
-                  {manage.map((item, idx) => (
+
+                {manage.map((item, idx) => (
+                  <S.ManageListItem>
                     <S.ManageListContentItemWrapper>
                       <S.TitleSpan key={idx}>
                         {item.grade}
@@ -56,8 +56,8 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                         <S.TitleSpan style={{ color: "red" }}>결석</S.TitleSpan>
                       )}
                     </S.ManageListContentItemWrapper>
-                  ))}
-                </S.ManageListItem>
+                  </S.ManageListItem>
+                ))}
               </>
             ) : (
               cls?.map((item, idx) => (

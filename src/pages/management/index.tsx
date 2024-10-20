@@ -10,8 +10,11 @@ import { useLocation } from "react-router-dom";
 import { ClassManagement } from "src/types/management/studentManagement.type";
 import UseFloorData from "src/hooks/management/useFloorData";
 import CsvData from "src/components/common/CsvData";
+import dayjs from "dayjs";
 
 const Management = () => {
+  const TodayDate = dayjs().format("YYYY-MM-DD");
+
   const { handleManagement, memberList } = useManagement();
 
   const { setFloor, CsvFloorData, floor, floorData, csvData } = UseFloorData();
@@ -62,7 +65,7 @@ const Management = () => {
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
-            {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName="출석기록" />}
+            {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName={TodayDate} />}
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem
