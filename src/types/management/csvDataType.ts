@@ -13,6 +13,13 @@ export interface FloorDataType {
   grade: number;
   cls: number;
   num: number;
+  todayLastLogs: [
+    {
+      timeTable: string;
+      roomName: string;
+      lastUpdated: string | undefined;
+    }
+  ];
   currentRoom: string;
   lastUpdated: string;
   fixedRoom: string;

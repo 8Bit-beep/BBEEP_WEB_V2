@@ -8,6 +8,7 @@ const CheckStudent = () => {
   // const { ...student } = useStudent();
   // const { memberList } = useStudent();
   const memberList = memberListStroe((state) => state.memberList);
+  console.log("memberList", memberList);
   return (
     <S.CheckStudentWrap>
       <Header />
@@ -27,7 +28,7 @@ const CheckStudent = () => {
                 <span>{item.name}</span>
                 <span>{item.num}</span>
                 <span>{item.floor}</span>
-                <span>{item.roomName}</span>
+                <span>{item.currentRoom}</span>
               </S.StudentLayer>
             ))}
           </S.ViewStudentWrap>

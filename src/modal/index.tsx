@@ -2,6 +2,7 @@ import { ClassResponseType } from "src/types/class/class.type";
 import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
 import { ClassManagement } from "src/types/management/studentManagement.type";
+import dayjs from "dayjs";
 
 interface Props {
   onClick: (item: string) => void;
@@ -11,12 +12,14 @@ interface Props {
 }
 
 const Modal = ({ onClick, cls = [], title, manage }: Props) => {
+
+
   return (
     <S.Wrapper>
       <S.ModalWrapper>
         <S.ModalMainWrapper>
           <S.HeaderLineWrapper>
-            <img style={{ width: 40, height: 40 }} src={Back} onClick={() => onClick("back")} />
+            <img style={{ width: 40, height: 40 }} src={Back} onClick={() => onClick("back")} alt="img" />
             <S.ModalTitleWrapper>{title}</S.ModalTitleWrapper>
           </S.HeaderLineWrapper>
           <S.ModalListWrapper>
@@ -31,26 +34,42 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                     <S.TitleSpan>9교시 출석</S.TitleSpan>
                     <S.TitleSpan>10교시 출석</S.TitleSpan>
                     <S.TitleSpan>11교시 출석</S.TitleSpan>
-
                     <S.TitleSpan>출/결</S.TitleSpan>
                   </S.ManageListTitleContentWrapper>
                 </S.ManageListTitleWrapper>
 
                 {manage.map((item, idx) => (
-                  <S.ManageListItem>
+                  <S.ManageListItem key={idx}>
                     <S.ManageListContentItemWrapper>
-                      <S.TitleSpan key={idx}>
+                      <S.TitleSpan>
                         {item.grade}
                         {item.cls}
                         {item.num?.toString().padStart(2, "0")}
                       </S.TitleSpan>
                       <S.TitleSpan>{item.name}</S.TitleSpan>
-                      <S.TitleSpan>{item.modifiedDate?.toString().split("T")[0]}</S.TitleSpan>
-                      <S.TitleSpan>{item.modifiedDate?.toString().split("T")[0]}</S.TitleSpan>
-                      <S.TitleSpan>{item.modifiedDate?.toString().split("T")[0]}</S.TitleSpan>
-                      <S.TitleSpan>{item.modifiedDate?.toString().split("T")[0]}</S.TitleSpan>
-                      <S.TitleSpan>{item.modifiedDate?.toString().split("T")[0]}</S.TitleSpan>
-                      {item.isExist === true ? (
+                      <S.TitleSpan>{dayjs(item.modifiedDate?.toString()).format("hh:mm:ss")}</S.TitleSpan>
+
+                      {/* 8교시 출석 */}
+                      <S.TitleSpan>
+                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                      </S.TitleSpan>
+
+                      {/* 9교시 출석 */}
+                      <S.TitleSpan>
+                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                      </S.TitleSpan>
+
+                      {/* 10교시 출석 */}
+                      <S.TitleSpan>
+                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                      </S.TitleSpan>
+
+                      {/* 11교시 출석 */}
+                      <S.TitleSpan>
+                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                      </S.TitleSpan>
+
+                      {item.isExist ? (
                         <S.TitleSpan style={{ color: "#24b105" }}>출석</S.TitleSpan>
                       ) : (
                         <S.TitleSpan style={{ color: "red" }}>결석</S.TitleSpan>
@@ -72,5 +91,4 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
     </S.Wrapper>
   );
 };
-
 export default Modal;

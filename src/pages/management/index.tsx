@@ -1,10 +1,9 @@
-import useCheckClass from "src/hooks/class/useCheckClass";
 import ModalPortal from "src/portal/portal";
 import * as S from "./style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useManagement from "src/hooks/management/useManagement";
 import { useLocation } from "react-router-dom";
 import { ClassManagement } from "src/types/management/studentManagement.type";
@@ -17,7 +16,7 @@ const Management = () => {
 
   const { handleManagement, memberList } = useManagement();
 
-  const { setFloor, CsvFloorData, floor, floorData, csvData } = UseFloorData();
+  const { setFloor, CsvFloorData, floorData, csvData } = UseFloorData();
 
   const { pathname } = useLocation();
 

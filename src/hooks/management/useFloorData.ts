@@ -1,10 +1,8 @@
 import { CsvDataType, FloorDataType } from "src/types/management/csvDataType";
 
 import { useEffect, useState } from "react";
-
+import dayjs from "dayjs";
 import { bbeepAxios } from "src/libs/axios/customAxios";
-
-
 
 const UseFloorData = () => {
   const [floorData, setFloorData] = useState<FloorDataType[]>([]);
@@ -38,9 +36,15 @@ const UseFloorData = () => {
       실: item.currentRoom,
       동아리: item.club,
       학번: `${item.grade}학년${item.cls}반${item.num}번`,
-      첫번째출석: item.lastUpdated,
-      두번째출석: item.lastUpdated,
-      세번째출석: item.lastUpdated,
+      첫번째출석: item.todayLastLogs[0].lastUpdated
+        ? dayjs(item.todayLastLogs[0].lastUpdated?.toString()).format("hh:mm:ss")
+        : "",
+      두번째출석: item.todayLastLogs[0].lastUpdated
+        ? dayjs(item.todayLastLogs[0].lastUpdated?.toString()).format("hh:mm:ss")
+        : "",
+      세번째출석: item.todayLastLogs[0].lastUpdated
+        ? dayjs(item.todayLastLogs[0].lastUpdated?.toString()).format("hh:mm:ss")
+        : "",
     }));
     setCsvData(FloorUserCsvData);
   }, [floorData]);
