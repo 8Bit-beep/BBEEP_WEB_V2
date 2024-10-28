@@ -12,8 +12,6 @@ interface Props {
 }
 
 const Modal = ({ onClick, cls = [], title, manage }: Props) => {
-
-
   return (
     <S.Wrapper>
       <S.ModalWrapper>
@@ -37,51 +35,58 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                     <S.TitleSpan>출/결</S.TitleSpan>
                   </S.ManageListTitleContentWrapper>
                 </S.ManageListTitleWrapper>
+                <div
+                  style={{
+                    width: "100%",
+                    height: 500,
+                  
+                    display: "flex",
+                    overflowY: "scroll",
+                    flexDirection: 'column'
+                  }}
+                >
+                  {manage.map((item, idx) => (
+                    <S.ManageListItem key={idx}>
+                      <S.ManageListContentItemWrapper>
+                        <S.TitleSpan>
+                          {item.grade}
+                          {item.cls}
+                          {item.num?.toString().padStart(2, "0")}
+                        </S.TitleSpan>
+                        <S.TitleSpan>{item.name}</S.TitleSpan>
+                        <S.TitleSpan>{dayjs(item.modifiedDate?.toString()).format("hh:mm:ss")}</S.TitleSpan>
 
-                {manage.map((item, idx) => (
-                  <S.ManageListItem key={idx}>
-                    <S.ManageListContentItemWrapper>
-                      <S.TitleSpan>
-                        {item.grade}
-                        {item.cls}
-                        {item.num?.toString().padStart(2, "0")}
-                      </S.TitleSpan>
-                      <S.TitleSpan>{item.name}</S.TitleSpan>
-                      <S.TitleSpan>{dayjs(item.modifiedDate?.toString()).format("hh:mm:ss")}</S.TitleSpan>
+                        <S.TitleSpan>
+                          {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                        </S.TitleSpan>
 
-                      {/* 8교시 출석 */}
-                      <S.TitleSpan>
-                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
-                      </S.TitleSpan>
+                        <S.TitleSpan>
+                          {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                        </S.TitleSpan>
 
-                      {/* 9교시 출석 */}
-                      <S.TitleSpan>
-                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
-                      </S.TitleSpan>
+                        <S.TitleSpan>
+                          {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                        </S.TitleSpan>
 
-                      {/* 10교시 출석 */}
-                      <S.TitleSpan>
-                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
-                      </S.TitleSpan>
+                        <S.TitleSpan>
+                          {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                        </S.TitleSpan>
 
-                      {/* 11교시 출석 */}
-                      <S.TitleSpan>
-                        {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
-                      </S.TitleSpan>
-
-                      {item.isExist ? (
-                        <S.TitleSpan style={{ color: "#24b105" }}>출석</S.TitleSpan>
-                      ) : (
-                        <S.TitleSpan style={{ color: "red" }}>결석</S.TitleSpan>
-                      )}
-                    </S.ManageListContentItemWrapper>
-                  </S.ManageListItem>
-                ))}
+                        {item.isExist ? (
+                          <S.TitleSpan style={{ color: "#24b105" }}>출석</S.TitleSpan>
+                        ) : (
+                          <S.TitleSpan style={{ color: "red" }}>결석</S.TitleSpan>
+                        )}
+                      </S.ManageListContentItemWrapper>
+                    </S.ManageListItem>
+                  ))}
+                  
+                </div>
               </>
             ) : (
               cls?.map((item, idx) => (
                 <S.ListItem key={idx}>
-                  {item.cls} 학년 {item.grade} 반 {item.name}
+                  {item.grade} 학년 {item.cls} 반 {item.name}
                 </S.ListItem>
               ))
             )}
