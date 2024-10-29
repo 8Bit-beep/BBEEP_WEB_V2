@@ -78,8 +78,9 @@ export const ManageListTitleWrapper = styled.div`
   height: 10%;
   display: flex;
   align-items: center;
-  justify-content: center;
+
   background-color: #f0f0f0;
+  
 `;
 
 export const ManageListTitleContentWrapper = styled.div`
@@ -90,7 +91,7 @@ export const ManageListTitleContentWrapper = styled.div`
 `;
 
 export const TitleSpan = styled.span`
-  font-size: 18px;
+  font-size: 17px;
 `;
 
 export const ManageListItem = styled.div`
@@ -98,15 +99,15 @@ export const ManageListItem = styled.div`
   width: 100%;
   height: 80px;
   background-color: #fff;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+
 `;
 
 export const ManageListContentItemWrapper = styled.div`
   width: 90%;
   height: 80px;
-  align-items:center;
+  align-items: center;
   display: flex;
   justify-content: space-between;
 `;
+
