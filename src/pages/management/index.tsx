@@ -47,6 +47,7 @@ const Management = () => {
   }, [pathname]);
 
   return (
+    
     <ModalPortal>
       <S.CheckClassWrapper>
         <Header />
