@@ -48,11 +48,8 @@ export const StudentLayer = styled.div`
   justify-content: space-around;
 
   span {
-    height: 60px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    
+
     font-size: 18px;
     font-weight: 800;
   }
@@ -70,7 +67,7 @@ export const StudentLayerList = styled.div`
   justify-content: space-around;
 
   span {
-    height: 60px;
+    height: 62px;
     text-align: center;
     align-items: center;
     justify-content: center;

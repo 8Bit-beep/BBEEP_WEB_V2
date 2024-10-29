@@ -40,6 +40,8 @@ const CheckStudent = () => {
                   <span>{item.currentRoom}</span>
                 </S.StudentLayerList>
               ))}
+              
+              
             </div>
           </S.ViewStudentWrap>
         </S.MainView>
