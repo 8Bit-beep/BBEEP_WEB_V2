@@ -23,14 +23,27 @@ const CheckStudent = () => {
               <span>층</span>
               <span>실</span>
             </S.StudentLayer>
-            {memberList?.map((item, idx) => (
-              <S.StudentLayer key={idx}>
-                <span>{item.name}</span>
-                <span>{item.num}</span>
-                <span>{item.floor}</span>
-                <span>{item.currentRoom}</span>
-              </S.StudentLayer>
-            ))}
+            <div
+              style={{
+                width: "100%",
+                height: 900,
+                display: "flex",
+                flexDirection: "column",
+                overflowY: "scroll",
+              }}
+            >
+              {memberList?.map((item, idx) => (
+                <S.StudentLayer key={idx}>
+                  <span>{item.name}</span>
+                  <span>{item.num}</span>
+                  <span>{item.floor}</span>
+                  <span>{item.currentRoom}</span>
+                </S.StudentLayer>
+              ))}
+              
+              
+              
+            </div>
           </S.ViewStudentWrap>
         </S.MainView>
       </S.Main>
