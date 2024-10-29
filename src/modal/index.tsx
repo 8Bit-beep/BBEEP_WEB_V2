@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Modal = ({ onClick, cls = [], title, manage }: Props) => {
-  console.log('manage', manage)
+  console.log("manage", manage);
   return (
     <S.Wrapper>
       <S.ModalWrapper>
@@ -56,18 +56,25 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                           {item.num?.toString().padStart(2, "0")}
                         </S.TitleSpan>
                         <S.TitleSpan>{item.name}</S.TitleSpan>
-                        <S.TitleSpan>{dayjs(item.modifiedDate?.toString()).format("hh:mm:ss")}</S.TitleSpan>
-
                         <S.TitleSpan>
                           {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
                         </S.TitleSpan>
 
                         <S.TitleSpan>
-                          {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                          {item?.todayLastLogs?.length > 0 &&
+                            dayjs(item.todayLastLogs[0].lastUpdated?.toString() ?? "").format("hh:mm:ss")}
                         </S.TitleSpan>
 
                         <S.TitleSpan>
-                          {dayjs(item?.todayLastLogs?.[0]?.lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                          {item?.todayLastLogs[0].lastUpdated === item.todayLastLogs[1].lastUpdated
+                            ? "출석기록 없음"
+                            : dayjs(item.todayLastLogs[1].lastUpdated?.toString() ?? "").format("hh:mm:ss")}
+                        </S.TitleSpan>
+
+                        <S.TitleSpan>
+                          {item?.todayLastLogs[1].lastUpdated === item.todayLastLogs[2].lastUpdated
+                            ? "출석기록 없음"
+                            : dayjs(item.todayLastLogs[1].lastUpdated?.toString() ?? "").format("hh:mm:ss")}
                         </S.TitleSpan>
 
                         <S.TitleSpan>

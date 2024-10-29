@@ -1,7 +1,16 @@
 export interface ClassManagement {
   roomName: string;
-  todayLastLogs:
-  [
+  todayLastLogs: [
+    {
+      timeTable: string;
+      roomName: string;
+      lastUpdated: Date | null | undefined;
+    },
+    {
+      timeTable: string;
+      roomName: string;
+      lastUpdated: Date | null | undefined;
+    },
     {
       timeTable: string;
       roomName: string;
