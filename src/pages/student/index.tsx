@@ -33,16 +33,13 @@ const CheckStudent = () => {
               }}
             >
               {memberList?.map((item, idx) => (
-                <S.StudentLayer key={idx}>
+                <S.StudentLayerList key={idx}>
                   <span>{item.name}</span>
                   <span>{item.num}</span>
                   <span>{item.floor}</span>
                   <span>{item.currentRoom}</span>
-                </S.StudentLayer>
+                </S.StudentLayerList>
               ))}
-              
-              
-              
             </div>
           </S.ViewStudentWrap>
         </S.MainView>

@@ -42,13 +42,34 @@ export const StudentLayer = styled.div`
   height: 8%;
 
   background: #fff;
-  margin-bottom: 10px;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
 
   span {
- 
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 18px;
+    font-weight: 800;
+  }
+`;
+
+export const StudentLayerList = styled.div`
+  width: 100%;
+  height: 8%;
+
+  background: #fff;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  span {
     height: 60px;
     text-align: center;
     align-items: center;
