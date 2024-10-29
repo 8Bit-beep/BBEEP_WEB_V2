@@ -6,7 +6,6 @@ import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 import UseCheckFloor from "src/hooks/class/useCheckFloor";
 import { useEffect, useState } from "react";
-import { FIRST_FLOOR_INFO } from "src/constants/room.constants";
 
 
 const FirstClass = () => {
@@ -14,8 +13,7 @@ const FirstClass = () => {
   const { setFloor, classData } = UseCheckFloor();
   const [title, setTitle] = useState<string>("");
 
-  const [title, setTitle] = useState<string>("");
-
+  
   const FloorData = "1";
 
   useEffect(() => {
