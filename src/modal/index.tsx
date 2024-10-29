@@ -2,7 +2,6 @@ import { ClassResponseType } from "src/types/class/class.type";
 import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
 import { ClassManagement } from "src/types/management/studentManagement.type";
-import { useEffect, useState } from "react";
 
 import dayjs from "dayjs";
 
@@ -13,8 +12,8 @@ interface Props {
   title: string[] | string;
 }
 
-
 const Modal = ({ onClick, cls = [], title, manage }: Props) => {
+  console.log('manage', manage)
   return (
     <S.Wrapper>
       <S.ModalWrapper>
@@ -42,10 +41,10 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                   style={{
                     width: "100%",
                     height: 500,
-                  
+
                     display: "flex",
                     overflowY: "scroll",
-                    flexDirection: 'column'
+                    flexDirection: "column",
                   }}
                 >
                   {manage.map((item, idx) => (
@@ -83,7 +82,6 @@ const Modal = ({ onClick, cls = [], title, manage }: Props) => {
                       </S.ManageListContentItemWrapper>
                     </S.ManageListItem>
                   ))}
-                  
                 </div>
               </>
             ) : (

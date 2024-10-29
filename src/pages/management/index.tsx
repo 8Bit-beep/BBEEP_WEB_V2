@@ -66,9 +66,7 @@ const Management = () => {
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
-
             {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName={TodayDate} />}
-
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem

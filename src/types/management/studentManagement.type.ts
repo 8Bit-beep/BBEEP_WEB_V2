@@ -1,21 +1,11 @@
-import { BaseResponse } from "../util/response.type";
-
 export interface ClassManagement {
-  // roomName: string;
-  // name?: string;
-  // grade?: number;
-  // cls?: number;
-  // num?: number;
-  // club?: string | null;
-  // isExist?: boolean;
-  // modifiedDate?: Date | null;
-
   roomName: string;
-  todayLastLogs: [
+  todayLastLogs:
+  [
     {
       timeTable: string;
       roomName: string;
-      lastUpdated: Date | null;
+      lastUpdated: Date | null | undefined;
     }
   ];
   currentRoom: string;
@@ -31,8 +21,3 @@ export interface ClassManagement {
 export interface ClassManagementResponse {
   data: ClassManagement[];
 }
-
-// export interface ClassMemberParams {
-//     grade: number;
-//     cls: number;
-// }
