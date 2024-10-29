@@ -56,6 +56,7 @@ const Management = () => {
     }
   }, [pathname]);
 
+  
   console.log("floorData", floorData);
 
   return (
