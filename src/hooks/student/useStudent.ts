@@ -25,6 +25,10 @@ const useStudent = () => {
       })
       .then((res) => {
         setMemberList(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        setMemberList([]);
       });
   };
   setMemberListStore(memberList);

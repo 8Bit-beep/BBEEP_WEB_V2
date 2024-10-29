@@ -7,11 +7,13 @@ import Modal from "src/modal";
 import UseCheckFloor from "src/hooks/class/useCheckFloor";
 import { useEffect, useState } from "react";
 
+
 const SecondClass = () => {
   const { modal, style, ItemClick, cls, ClassList } = useCheckClass();
   const { setFloor, classData } = UseCheckFloor();
   const [title, setTitle] = useState<string>("");
   const FloorData = "2";
+
 
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const SecondClass = () => {
           <Sidebar />
           <S.ContentWrapper>
             <S.ContentMainWrapper>
+
               {classData.map((item, idx) => (
                 <S.ClassItem
                   key={idx}
@@ -38,6 +41,7 @@ const SecondClass = () => {
                   <S.ItemContentWrap>{item.roomCode}</S.ItemContentWrap>
                 </S.ClassItem>
               ))}
+
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>

@@ -3,6 +3,7 @@ import * as S from "./style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
+
 import { useEffect, useState } from "react";
 import useManagement from "src/hooks/management/useManagement";
 import { useLocation } from "react-router-dom";
@@ -64,11 +65,14 @@ const Management = () => {
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
+
             {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName={TodayDate} />}
+
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem
                   onClick={() => {
+
                     item !== "3D" ? handleManagement(item) : handleManagement("D3");
                     setRenderModal(true);
                     setRenderTitle(item);

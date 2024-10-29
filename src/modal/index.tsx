@@ -2,6 +2,8 @@ import { ClassResponseType } from "src/types/class/class.type";
 import * as S from "./style";
 import Back from "src/assets/Class/Modal/BackButton.svg";
 import { ClassManagement } from "src/types/management/studentManagement.type";
+import { useEffect, useState } from "react";
+
 import dayjs from "dayjs";
 
 interface Props {
@@ -10,6 +12,7 @@ interface Props {
   cls?: ClassResponseType[] | null;
   title: string[] | string;
 }
+
 
 const Modal = ({ onClick, cls = [], title, manage }: Props) => {
   return (
