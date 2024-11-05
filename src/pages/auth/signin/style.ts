@@ -39,19 +39,19 @@ export const SingInContentWrapper = styled.div`
 `;
 
 export const Logo = styled.div`
-  width: 100%;
+  width: 90%;
   height: 70%;
   min-width: 100%;
   min-height: 70%;
   background-image: url(${BbeepLogo});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 `;
 
 export const LogoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: fit-content;
   height: 20%;
   margin-top: 5%;
   justify-content: space-between;
@@ -92,19 +92,22 @@ export const PwInput = styled.input`
 export const LoginKeepWrapper = styled.div`
   display: flex;
   width: 30%;
+  min-width: 30%;
   height: 20%;
   justify-content: center;
   align-items: center;
 `;
 
 export const LoginKeepBox = styled.input`
-  width: 35%;
+  width: 50%;
   height: 60%;
   background-color: yellow;
 `;
 
 export const LoginKeepText = styled.span`
-  font-size: 1.2rem;
+  width: fit-content;
+  height: fit-content;
+  font-size: 16px;
   color: #6f7071;
 `;
 
@@ -130,14 +133,16 @@ export const SignInButton = styled.button`
 export const NavigateWrapper = styled.div`
   width: 100%;
   height: 10%;
+  min-width: 100%;
+  min-height: 10%;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 `;
 
 export const StyleSpan = styled.span`
   font-size: 1rem;
   color: #acadae;
-  
 `;
