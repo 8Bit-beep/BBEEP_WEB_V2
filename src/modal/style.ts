@@ -29,6 +29,11 @@ export const ModalMainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 2560px) {
+    justify-content: space-evenly;
+    gap: 0;
+  }
 `;
 
 export const ModalTitleWrapper = styled.div`
@@ -80,7 +85,6 @@ export const ManageListTitleWrapper = styled.div`
   align-items: center;
 
   background-color: #f0f0f0;
-  
 `;
 
 export const ManageListTitleContentWrapper = styled.div`
@@ -99,8 +103,6 @@ export const ManageListItem = styled.div`
   width: 100%;
   height: 80px;
   background-color: #fff;
-
-
 `;
 
 export const ManageListContentItemWrapper = styled.div`
@@ -110,4 +112,3 @@ export const ManageListContentItemWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
