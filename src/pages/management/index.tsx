@@ -1,16 +1,23 @@
-import useCheckClass from "src/hooks/class/useCheckClass";
 import ModalPortal from "src/portal/portal";
 import * as S from "./style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
-import { useCallback, useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
 import useManagement from "src/hooks/management/useManagement";
 import { useLocation } from "react-router-dom";
 import { ClassManagement } from "src/types/management/studentManagement.type";
+import UseFloorData from "src/hooks/management/useFloorData";
+import CsvData from "src/components/common/CsvData";
+import dayjs from "dayjs";
 
 const Management = () => {
+  const TodayDate = dayjs().format("YYYY-MM-DD");
+
   const { handleManagement, memberList } = useManagement();
+
+  const { setFloor, CsvFloorData, floorData, csvData } = UseFloorData();
 
   const { pathname } = useLocation();
 
@@ -26,6 +33,7 @@ const Management = () => {
 
   useEffect(() => {
     setRenderMemberList(memberList);
+    CsvFloorData();
   }, [memberList]);
 
   useEffect(() => {
@@ -35,9 +43,11 @@ const Management = () => {
       switch (true) {
         case pathname.includes("second"):
           setRenderList(clubList[1]);
+          setFloor("2");
           break;
         case pathname.includes("third"):
           setRenderList(clubList[0]);
+          setFloor("3");
           break;
         case pathname.includes("all"):
           setRenderList(clubList.reduce((a, b) => a.concat(b), []));
@@ -45,6 +55,9 @@ const Management = () => {
       }
     }
   }, [pathname]);
+
+  
+  console.log("floorData", floorData);
 
   return (
     
@@ -54,11 +67,13 @@ const Management = () => {
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
+            {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName={TodayDate} />}
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem
                   onClick={() => {
-                    item != "3D" ? handleManagement(item) : handleManagement("D3");
+
+                    item !== "3D" ? handleManagement(item) : handleManagement("D3");
                     setRenderModal(true);
                     setRenderTitle(item);
                   }}

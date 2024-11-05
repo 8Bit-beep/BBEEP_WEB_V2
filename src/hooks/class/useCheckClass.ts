@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { ClassResponse, ClassResponseType } from "src/types/class/class.type";
 import token from "src/libs/token/token";
 
-
 const useCheckClass = () => {
   const [modal, setModal] = useState<boolean>(false);
   const [style, setStyle] = useState<string>("");

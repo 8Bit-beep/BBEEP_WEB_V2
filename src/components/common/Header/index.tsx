@@ -24,7 +24,7 @@ const Header = () => {
             <div>
               <h4>{profileInfo?.data.name}</h4>
               <h5>{profileInfo?.data.department}</h5>
-              <img src={Dropdown} onClick={header.handleClicked} />
+              <img src={Dropdown} onClick={header.handleClicked} alt="dropDown" />
             </div>
           </S.ProfileWrap>
         ) : (
@@ -32,7 +32,7 @@ const Header = () => {
             <div>
               <h4>알수없음</h4>
               <h5>로그아웃</h5>
-              <img src={Dropdown} onClick={header.handleClicked} />
+              <img src={Dropdown} onClick={header.handleClicked} alt="dropDown" />
             </div>
           </S.ProfileWrap>
         )}

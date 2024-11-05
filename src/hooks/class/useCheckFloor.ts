@@ -11,7 +11,18 @@ const UseCheckFloor = () => {
 
   const GetFloorData = async () => {
     try {
-      await bbeepAxios.get(`${CONFIG.serverUrl}/room?floor=${floor}`).then((res) => setClassData(res.data.data));
+
+      const res = await bbeepAxios.get(`${CONFIG.serverUrl}/room/${floor}`, {
+        headers: {
+          Authorization: `Bearer ${token.getToken(ACCESS_TOKEN_KEY)}`,
+        },
+      });
+
+      if (res.status === 200) {
+        console.log(res.data.data);
+        setClassData(res.data.data);
+      }
+
     } catch (error) {
       console.error(error);
     }

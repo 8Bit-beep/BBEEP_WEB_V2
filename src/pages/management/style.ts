@@ -11,11 +11,13 @@ export const MainWrapper = styled.div`
   display: flex;
   width: 100%;
   height: calc(100% - 100px);
+  position: relative;
 `;
 
 export const ContentWrapper = styled.div`
   width: calc(100% - 220px);
   height: 100%;
+  position: relative;
 `;
 
 export const ContentMainWrapper = styled.div`

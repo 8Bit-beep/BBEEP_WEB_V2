@@ -20,6 +20,7 @@ export const ModalWrapper = styled.div`
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  min-height: 0px;
 `;
 
 export const ModalMainWrapper = styled.div`
@@ -27,6 +28,7 @@ export const ModalMainWrapper = styled.div`
   height: 90%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ModalTitleWrapper = styled.div`
@@ -45,23 +47,19 @@ export const ModalTitleWrapper = styled.div`
 
 export const HeaderLineWrapper = styled.div`
   width: 100%;
-  height: 18%;
+  height: 20%;
   display: flex;
   margin-bottom: 2%;
 `;
 
 export const ModalListWrapper = styled.div<{ isManaged?: boolean }>`
   width: 100%;
-  height: auto;
+  height: 600px;
   display: flex;
-  flex-wrap: wrap;
   align-self: center;
-  overflow-y: scroll;
-  gap: 10px 5.25%;
-  justify-content: center;
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  overflow-y: auto;
+  flex-direction: column;
+  position: relative;
 `;
 
 export const ListItem = styled.div`
@@ -75,11 +73,41 @@ export const ListItem = styled.div`
   align-items: center;
 `;
 
+export const ManageListTitleWrapper = styled.div`
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+
+  background-color: #f0f0f0;
+  
+`;
+
+export const ManageListTitleContentWrapper = styled.div`
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const TitleSpan = styled.span`
+  font-size: 17px;
+`;
+
 export const ManageListItem = styled.div`
   display: flex;
-  width: 40%;
-  height: 50px;
+  width: 100%;
+  height: 80px;
   background-color: #fff;
-  align-items: center;
-  flex-direction: row;
+
+
 `;
+
+export const ManageListContentItemWrapper = styled.div`
+  width: 90%;
+  height: 80px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+`;
+

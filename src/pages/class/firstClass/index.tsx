@@ -6,22 +6,19 @@ import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
 import UseCheckFloor from "src/hooks/class/useCheckFloor";
 import { useEffect, useState } from "react";
-import { FIRST_FLOOR_INFO } from "src/constants/room.constants";
+
 
 const FirstClass = () => {
   const { modal, style, ItemClick, cls } = useCheckClass();
   const { setFloor, classData } = UseCheckFloor();
   const [title, setTitle] = useState<string>("");
 
+  
   const FloorData = "1";
 
   useEffect(() => {
     setFloor(FloorData);
   }, []);
-
-  const ListTitle = FIRST_FLOOR_INFO.map((item) => {
-    return item.name;
-  });
 
   return (
     <ModalPortal>
@@ -31,20 +28,20 @@ const FirstClass = () => {
           <Sidebar />
           <S.ContentWrapper>
             <S.ContentMainWrapper>
-              {FIRST_FLOOR_INFO.map((item, idx) => {
-                return (
-                  <S.ClassItem
-                    key={idx}
-                    onClick={() => {
-                      item && ItemClick(item.code);
-                      setTitle(item.name);
-                    }}
-                    clicked={style === item.code ? true : false}
-                  >
-                    <S.ItemContentWrap>{item.name}</S.ItemContentWrap>
-                  </S.ClassItem>
-                );
-              })}
+
+              {classData.map((item, idx) => (
+                <S.ClassItem
+                  key={idx}
+                  onClick={() => {
+                    item && ItemClick(item.code);
+                    setTitle(item.roomCode);
+                  }}
+                  clicked={style === item.code ? true : false}
+                >
+                  <S.ItemContentWrap>{item.roomCode}</S.ItemContentWrap>
+                </S.ClassItem>
+              ))}
+
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>

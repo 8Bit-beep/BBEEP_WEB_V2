@@ -8,6 +8,7 @@ const CheckStudent = () => {
   // const { ...student } = useStudent();
   // const { memberList } = useStudent();
   const memberList = memberListStroe((state) => state.memberList);
+  console.log("memberList", memberList);
   return (
     <S.CheckStudentWrap>
       <Header />
@@ -22,14 +23,26 @@ const CheckStudent = () => {
               <span>층</span>
               <span>실</span>
             </S.StudentLayer>
-            {memberList?.map((item, idx) => (
-              <S.StudentLayer key={idx}>
-                <span>{item.name}</span>
-                <span>{item.num}</span>
-                <span>{item.floor}</span>
-                <span>{item.roomName}</span>
-              </S.StudentLayer>
-            ))}
+            <div
+              style={{
+                width: "100%",
+                height: 900,
+                display: "flex",
+                flexDirection: "column",
+                overflowY: "scroll",
+              }}
+            >
+              {memberList?.map((item, idx) => (
+                <S.StudentLayerList key={idx}>
+                  <span>{item.name}</span>
+                  <span>{item.num}</span>
+                  <span>{item.floor}</span>
+                  <span>{item.currentRoom}</span>
+                </S.StudentLayerList>
+              ))}
+              
+              
+            </div>
           </S.ViewStudentWrap>
         </S.MainView>
       </S.Main>
