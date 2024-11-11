@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import BackgroundImg from "src/assets/BbeepBackGround.svg";
-import LoginImg from "src/assets/auth/signin/LoginImg.svg";
-import BbeepLogo from "src/assets/auth/signin/BbeepLoginLogo.svg";
+import styled from 'styled-components';
+import BackgroundImg from 'src/assets/BbeepBackGround.svg';
+import LoginImg from 'src/assets/auth/signin/LoginImg.svg';
+import BbeepLogo from 'src/assets/auth/signin/BbeepLoginLogo.svg';
 
 export const Wrapper = styled.div`
   width: 100vw;
@@ -91,7 +91,7 @@ export const PwInput = styled.input`
 
 export const LoginKeepWrapper = styled.div`
   display: flex;
-  width: 30%;
+  width: 40%;
   min-width: 30%;
   height: 20%;
   justify-content: center;
@@ -105,10 +105,11 @@ export const LoginKeepBox = styled.input`
 `;
 
 export const LoginKeepText = styled.span`
-  width: fit-content;
   height: fit-content;
   font-size: 16px;
   color: #6f7071;
+
+  width: 100%;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -139,7 +140,6 @@ export const NavigateWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 `;
 
 export const StyleSpan = styled.span`
