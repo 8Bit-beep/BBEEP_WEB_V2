@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  width: 65%;
+  width: 90%;
   height: 80%;
   display: flex;
   background: #f8f5f5;

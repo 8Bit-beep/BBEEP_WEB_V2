@@ -17,7 +17,7 @@ const Management = () => {
 
   const { handleManagement, memberList } = useManagement();
 
-  const { setFloor, CsvFloorData, floorData, csvData } = UseFloorData();
+  const { setFloor, CsvFloorData, csvData } = UseFloorData();
 
   const { pathname } = useLocation();
 
@@ -33,13 +33,10 @@ const Management = () => {
 
   useEffect(() => {
     setRenderMemberList(memberList);
-    CsvFloorData();
   }, [memberList]);
 
   useEffect(() => {
     if (pathname.includes("management")) {
-      //@ts-ignore
-      // setRenderList(clubList[Number(pathname.includes("second"))])
       switch (true) {
         case pathname.includes("second"):
           setRenderList(clubList[1]);
@@ -50,24 +47,26 @@ const Management = () => {
           setFloor("3");
           break;
         case pathname.includes("all"):
+          setFloor("all");
+          setRenderList(clubList.reduce((a, b) => a.concat(b), []));
+          break;
+        case pathname.includes("none-people"):
+          setFloor("none");
           setRenderList(clubList.reduce((a, b) => a.concat(b), []));
           break;
       }
     }
   }, [pathname]);
 
-  
-  console.log("floorData", floorData);
-
   return (
-    
+
     <ModalPortal>
       <S.CheckClassWrapper>
         <Header />
         <S.MainWrapper>
           <Sidebar />
           <S.ContentWrapper>
-            {pathname.includes("all") ? <></> : <CsvData csvData={csvData} fileName={TodayDate} />}
+            <CsvData csvData={csvData} fileName={TodayDate} />
             <S.ContentMainWrapper>
               {renderList.map((item, idx) => (
                 <S.ClassItem

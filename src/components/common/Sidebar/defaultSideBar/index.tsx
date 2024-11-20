@@ -79,6 +79,10 @@ const Sidebar = () => {
             <img src={Check}  alt="whole"/>
             <span>전체</span>
           </S.Item>
+          <S.Item onClick={() => handleCategoryClick("결석")} $isclicked={isClickCategory === "결석" ? "true" : "false"}>
+            <img src={Check}  alt="none"/>
+            <span>결석인원</span>
+          </S.Item>
         </S.MenuItem>
       </S.MenuWrap>
     </S.SidebarWrap>

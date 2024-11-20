@@ -5,50 +5,62 @@ import { bbeepAxios } from "src/libs/axios/customAxios";
 
 const UseFloorData = () => {
   const [floorData, setFloorData] = useState<FloorDataType[]>([]);
+  const [allFloorData, setAllFloorData] = useState<FloorDataType[]>([]);
   const [floor, setFloor] = useState<string>("");
-  const [csvData, setCsvData] = useState<CsvDataType[]>([
-    {
-      동아리: "",
-      실: "",
-      이름: "",
-      학번: "",
-      첫번째출석: "",
-      두번째출석: "",
-      세번째출석: "",
-    },
-  ]);
+  const [csvData, setCsvData] = useState<CsvDataType[]>([]); // 타입 변경
+
+  useEffect(() => {
+    CsvFloorData();
+  }, [floor]);
 
   const CsvFloorData = async () => {
-    await bbeepAxios
-      .get(`student/${floor}/study-list`)
-      .then((res) => {
-        setFloorData(res.data.data);
-      })
-      .catch((error) => {
+    if (floor === "all" || floor === "none") {
+      setAllFloorData([]);
+      try {
+        const response1 = await bbeepAxios.get(`student/${2}/study-list`);
+        const response2 = await bbeepAxios.get(`student/${3}/study-list`);
+        setAllFloorData([...response1.data.data, ...response2.data.data]);
+      } catch (error) {
         console.error(error);
-      });
+      }
+    } else {
+      try {
+        const response = await bbeepAxios.get(`student/${floor}/study-list`);
+        setFloorData(response.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   };
 
   useEffect(() => {
-    const FloorUserCsvData = floorData.map((item) => {
-      // todayLastLogs가 존재하고 길이가 1 이상인지 체크
+    setFloorData(allFloorData);
+  }, [allFloorData]);
+
+  useEffect(() => {
+    const csvArray: CsvDataType[] = [];
+
+    floorData.forEach((item) => {
       const lastLogs = item.todayLastLogs || [];
       const Attendance =
-        lastLogs.length > 0 && lastLogs[0].lastUpdated
-          ? dayjs(lastLogs[0].lastUpdated.toString()).format("hh:mm:ss")
-          : ""; // 빈 문자열 기본값
+          lastLogs.length > 0 && lastLogs[0].lastUpdated
+              ? dayjs(lastLogs[0].lastUpdated.toString()).format("hh:mm:ss")
+              : "";
 
-      return {
+      const csvEntry: CsvDataType = {
         이름: item.name,
         실: item.currentRoom,
         동아리: item.club,
         학번: `${item.grade}학년${item.cls}반${item.num}번`,
         첫번째출석: Attendance,
-        두번째출석: Attendance, // 필요에 따라 다르게 처리 가능
-        세번째출석: Attendance, // 필요에 따라 다르게 처리 가능
+        두번째출석: Attendance,
+        세번째출석: Attendance,
       };
+
+      csvArray.push(csvEntry);
     });
-    setCsvData(FloorUserCsvData);
+
+    setCsvData(csvArray); // 단일 배열로 설정
   }, [floorData]);
 
   return {

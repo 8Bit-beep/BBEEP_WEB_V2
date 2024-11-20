@@ -51,6 +51,10 @@ const UseSideBarNavigation = ({ location, navigate }: NavigationProps) => {
           setIsClickCategory("전출석");
           setMenu(isClickCategory);
           break;
+        case "/check-management/none-people":
+          setIsClickCategory("결석");
+          setMenu(isClickCategory);
+          break;
         default:
           setIsClickCategory("");
           break;
@@ -89,6 +93,9 @@ const UseSideBarNavigation = ({ location, navigate }: NavigationProps) => {
         break;
       case "전출석":
         navigate("/check-management/all-floor");
+        break;
+      case "결석":
+        navigate("/check-management/none-people");
         break;
       default:
         navigate("");
