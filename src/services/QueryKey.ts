@@ -1,8 +1,9 @@
 export const QUERY_KEYS = Object.freeze({
   profile: {
-    getProfile: "/teachers/info",
+    getProfile: '/teachers/info',
   },
   student: {
-    getMember: "/students/member",
+    getMember: '/students/member',
   },
+  schedules: '/schedules',
 });

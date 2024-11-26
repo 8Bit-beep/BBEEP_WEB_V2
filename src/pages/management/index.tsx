@@ -71,7 +71,6 @@ const Management = () => {
               {renderList.map((item, idx) => (
                 <S.ClassItem
                   onClick={() => {
-
                     item !== "3D" ? handleManagement(item) : handleManagement("D3");
                     setRenderModal(true);
                     setRenderTitle(item);
