@@ -1,11 +1,13 @@
 export interface CsvDataType {
+  [key: string]: any;
   동아리: string | undefined;
   실: string | undefined;
   이름: string | undefined;
   학번: string;
-  첫번째출석: string | undefined;
-  두번째출석: string | undefined;
-  세번째출석: string | undefined;
+  '8교시 출석': string | undefined;
+  '9교시 출석': string | undefined;
+  '10교시 출석': string | undefined;
+  '11교시 출석': string | undefined;
 }
 
 export interface FloorDataType {
