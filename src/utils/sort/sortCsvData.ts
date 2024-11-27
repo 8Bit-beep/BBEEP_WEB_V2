@@ -1,6 +1,15 @@
 import { CsvDataType } from 'src/types/management/csvDataType';
 
 export const sortCsvData = (csvData: CsvDataType[]): CsvDataType[] => {
+  // 로컬스토리지에서 데이터를 가져오고 파싱합니다.
+  const localStorageData = JSON.parse(localStorage.getItem('memberList') || '{}');
+  const storedMemberList = localStorageData.data || [];
+
+  // CSV 데이터 필터링: 로컬스토리지에 있는 학생을 제외합니다.
+  const filteredCsvData = csvData.filter((csvItem) => {
+    return !storedMemberList.some((storedItem: { name: string }) => storedItem.name === csvItem.이름);
+  });
+
   const patternNumber = /[0-9]/;
   const patternAlphabet = /[a-zA-Z]/;
   const patternKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
@@ -11,7 +20,8 @@ export const sortCsvData = (csvData: CsvDataType[]): CsvDataType[] => {
     return index;
   };
 
-  csvData.sort((a, b) => {
+  // 필터링된 CSV 데이터 정렬
+  filteredCsvData.sort((a, b) => {
     const aClub = a.동아리 || '';
     const bClub = b.동아리 || '';
 
@@ -30,5 +40,5 @@ export const sortCsvData = (csvData: CsvDataType[]): CsvDataType[] => {
     return aClub.localeCompare(bClub);
   });
 
-  return csvData;
+  return filteredCsvData;
 };
