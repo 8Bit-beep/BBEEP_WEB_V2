@@ -95,8 +95,8 @@ const Sidebar = () => {
             <span>결석인원</span>
           </S.Item>
           <S.Item
-            onClick={() => handleCategoryClick('엑셀파일업로드')}
-            $isclicked={isClickCategory === '엑셀파일업로드' ? 'true' : 'false'}
+            onClick={() => handleCategoryClick('엑셀업로드')}
+            $isclicked={isClickCategory === '엑셀업로드' ? 'true' : 'false'}
           >
             <img src={Check} alt="none" />
             <span>엑셀업로드</span>

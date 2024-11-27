@@ -1,22 +1,30 @@
-import { useState } from "react";
-import token from "src/libs/token/token";
-import { ACCESS_TOKEN_KEY } from "src/constants/token.constants";
-import { bbeepAxios } from "src/libs/axios/customAxios";
-import { ClassManagement } from "src/types/management/studentManagement.type";
-import { ClubEnumType } from "src/types/management/clubEnumType";
+import { useState } from 'react';
+import token from 'src/libs/token/token';
+import { ACCESS_TOKEN_KEY } from 'src/constants/token.constants';
+import { bbeepAxios } from 'src/libs/axios/customAxios';
+import { ClassManagement, ClassManagementResponse } from 'src/types/management/studentManagement.type';
+import { ClubEnumType } from 'src/types/management/clubEnumType';
+import { UploadStore } from 'src/stores/upload/upload.store';
 
 const useManagement = () => {
   const [memberList, setMemberList] = useState<ClassManagement[]>([]);
-
+  const uploadMember = UploadStore((state) => state.uploadMember);
   const handleManagement = async (club: ClubEnumType) => {
     bbeepAxios
-      .get(`/student/study-list?club=${club}`, {
+      .get<ClassManagementResponse>(`/student/study-list?club=${club}`, {
         headers: {
           Authorization: `Bearer ${token.getToken(ACCESS_TOKEN_KEY)}`,
         },
       })
       .then((res) => {
-        setMemberList(res.data.data);
+        const localStorageData = JSON.parse(localStorage.getItem('memberList') || '{}');
+
+        const storedMemberList = localStorageData.data || [];
+
+        const filteredList = res.data.data.filter((member) => {
+          return !storedMemberList.some((storedMember: { num: number; }) => storedMember.num === member.num);
+        });
+        setMemberList(filteredList);
       })
       .catch((err) => {
         console.error(err);
