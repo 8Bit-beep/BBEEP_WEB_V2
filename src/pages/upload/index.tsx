@@ -11,12 +11,13 @@ import { DayOfWeek } from 'src/types/upload/upload.type';
 import { dayTransform } from 'src/utils/transform/dayTransform';
 import { timeTableTransform } from 'src/utils/transform/timeTableTransform';
 import { UploadStore } from 'src/stores/upload/upload.store';
+import cookie from '@src/libs/cookie/cookie';
 
 const UploadCsv = () => {
   const { handleFileChange, upload, fileRef } = useUpload();
   const { data: memberList } = useGetSchedules(dayjs().format('dddd').toUpperCase() as DayOfWeek);
-  const setMemberList = UploadStore((state) => state.setUploadMember);
-  setMemberList(memberList!);
+  localStorage.setItem('memberList', JSON.stringify(memberList));
+  console.log(localStorage.getItem('memberList'));
 
   return (
     <S.UploadCsvWrapper>

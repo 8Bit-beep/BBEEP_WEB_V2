@@ -17,9 +17,13 @@ const useManagement = () => {
         },
       })
       .then((res) => {
-        const filteredList = res.data.data.filter((member) =>
-          uploadMember.data.some((uploaded) => uploaded.name !== member.name)
-        );
+        const localStorageData = JSON.parse(localStorage.getItem('memberList') || '{}');
+
+        const storedMemberList = localStorageData.data || [];
+
+        const filteredList = res.data.data.filter((member) => {
+          return !storedMemberList.some((storedMember: { num: number; }) => storedMember.num === member.num);
+        });
         setMemberList(filteredList);
       })
       .catch((err) => {
