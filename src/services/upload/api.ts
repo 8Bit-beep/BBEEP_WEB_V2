@@ -24,6 +24,13 @@ class UploadCsvApi {
     const { data } = await bbeepAxios.get(`/schedules?dayOfWeek=${dayOfWeek}`);
     return data;
   }
+
+  public async downlodCsv(): Promise<File> {
+    const { data } = await bbeepAxios.get('/schedules/excel', {
+      responseType: 'blob',
+    });
+    return data;
+  }
 }
 
 const uploadCsvApi = new UploadCsvApi();
