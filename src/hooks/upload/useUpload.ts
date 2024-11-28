@@ -1,9 +1,11 @@
 import { AxiosError } from 'axios';
-import React, { useRef } from 'react';
-import { useUploadCSvMutation } from 'src/services/upload/mutation';
+import dayjs from 'dayjs';
+import React, { useRef, useState } from 'react';
+import { useDownlodCsvMutation, useUploadCSvMutation } from 'src/services/upload/mutation';
 
 const useUpload = () => {
   const fileRef = useRef<HTMLInputElement>(null);
+  const [file, setFile] = useState<File | null>(null);
 
   const formData = new FormData();
   const handleFileChange = () => {
@@ -31,10 +33,31 @@ const useUpload = () => {
     }
   };
 
+  const downlodCsvMutation = useDownlodCsvMutation();
+  const download = () => {
+    downlodCsvMutation.mutate(undefined, {
+      onSuccess: (res) => {
+        const url = URL.createObjectURL(new Blob([res]));
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = dayjs().format('YYYY-MM-DD') + '방과후 학생 명단.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      },
+      onError: (error) => {
+        console.log(error);
+      },
+    });
+  };
+
   return {
     handleFileChange,
     upload,
     fileRef,
+    download,
+    file,
   };
 };
 

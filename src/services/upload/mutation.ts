@@ -5,3 +5,8 @@ export const useUploadCSvMutation = () => {
   const mutation = useMutation((file: FormDataEntryValue) => uploadCsvApi.uploadCsv(file));
   return mutation;
 };
+
+export const useDownlodCsvMutation = () => {
+  const mutation = useMutation(() => uploadCsvApi.downlodCsv());
+  return mutation;
+};

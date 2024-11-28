@@ -1,6 +1,7 @@
 import { CsvDataType } from 'src/types/management/csvDataType';
 
 export const sortCsvData = (csvData: CsvDataType[]): CsvDataType[] => {
+  
   // 로컬스토리지에서 데이터를 가져오고 파싱합니다.
   const localStorageData = JSON.parse(localStorage.getItem('memberList') || '{}');
   const storedMemberList = localStorageData.data || [];

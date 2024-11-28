@@ -43,21 +43,42 @@ const UseFloorData = () => {
 
     floorData.forEach((item) => {
       const lastLogs = item.todayLastLogs || [];
-      const Attendance =
-        lastLogs.length > 0 && lastLogs[0].lastUpdated
-          ? dayjs(lastLogs[0].lastUpdated.toString()).format('hh:mm:ss')
-          : '';
+
+      // 기본 출석 정보 설정
+      const attendance = {
+        '8교시 출석': '4:30~5:20 / 결석',
+        '9교시 출석': '5:30~6:20 / 결석',
+        '10교시 출석': '7:10~8:00 /결석',
+        '11교시 출석': '8:10~9:00 / 결석',
+      };
+
+      lastLogs.forEach((log) => {
+        const timeTable = log.timeTable;
+        const lastUpdated = log.lastUpdated;
+
+        if (lastUpdated) {
+          const formattedTime = dayjs(lastUpdated.toString()).format('hh:mm:ss');
+
+          if (timeTable === 'EIGHT') {
+            attendance['8교시 출석'] = `4:30~5:20 / ${formattedTime}`;
+          } else if (timeTable === 'NINE') {
+            attendance['9교시 출석'] = `5:30~6:20 / ${formattedTime}`;
+          } else if (timeTable === 'TEN') {
+            attendance['10교시 출석'] = `7:10~8:00 / ${formattedTime}`;
+          } else if (timeTable === 'ELEVEN') {
+            attendance['11교시 출석'] = `8:10~9:00 / ${formattedTime}`;
+          }
+        }
+      });
 
       const csvEntry: CsvDataType = {
         이름: item.name || '',
         실: item.currentRoom || '',
         동아리: item.club || '',
         학번: `${item.grade}학년${item.cls}반${item.num}번`,
-        '8교시 출석': Attendance || '',
-        '9교시 출석': Attendance || '',
-        '10교시 출석': Attendance || '',
-        '11교시 출석': Attendance || '',
+        ...attendance, // 출석 정보 추가
       };
+
       csvArray.push(csvEntry);
     });
 

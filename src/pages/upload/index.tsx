@@ -14,10 +14,11 @@ import { UploadStore } from 'src/stores/upload/upload.store';
 import cookie from '@src/libs/cookie/cookie';
 
 const UploadCsv = () => {
-  const { handleFileChange, upload, fileRef } = useUpload();
+  const { handleFileChange, upload, fileRef, download, file } = useUpload();
   const { data: memberList } = useGetSchedules(dayjs().format('dddd').toUpperCase() as DayOfWeek);
   localStorage.setItem('memberList', JSON.stringify(memberList));
   console.log(localStorage.getItem('memberList'));
+  console.log(file);
 
   return (
     <S.UploadCsvWrapper>
@@ -53,7 +54,11 @@ const UploadCsv = () => {
             ))}
           </div>
           <input type="file" style={{ display: 'none' }} accept=".csv, .xlsx" onChange={upload} ref={fileRef} />
-          <S.UploadCsvButton onClick={handleFileChange}>파일 업로드</S.UploadCsvButton>
+
+          <S.UploadCsvButton onClick={handleFileChange}>파일 업로드 / 수정</S.UploadCsvButton>
+          <S.UploadCsvButton style={{ top: '87%' }} onClick={download}>
+            파일 다운로드
+          </S.UploadCsvButton>
         </S.ContentWrapper>
       </S.MainWrapper>
     </S.UploadCsvWrapper>
