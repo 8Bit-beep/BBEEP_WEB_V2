@@ -3,7 +3,6 @@ import * as S from "./style";
 import Header from "src/components/common/Header";
 import Sidebar from "src/components/common/Sidebar/defaultSideBar";
 import Modal from "src/modal";
-
 import { useEffect, useState } from "react";
 import useManagement from "src/hooks/management/useManagement";
 import { useLocation } from "react-router-dom";
@@ -30,6 +29,7 @@ const Management = () => {
   const [renderTitle, setRenderTitle] = useState("");
   const [renderModal, setRenderModal] = useState<boolean>(false);
   const [renderMemberList, setRenderMemberList] = useState<ClassManagement[]>([]);
+  const [isNone, setIsNone] = useState<boolean>(true);
 
   useEffect(() => {
     setRenderMemberList(memberList);
@@ -41,17 +41,21 @@ const Management = () => {
         case pathname.includes("second"):
           setRenderList(clubList[1]);
           setFloor("2");
+          setIsNone(false);
           break;
         case pathname.includes("third"):
           setRenderList(clubList[0]);
           setFloor("3");
+          setIsNone(false);
           break;
         case pathname.includes("all"):
           setFloor("all");
+          setIsNone(false);
           setRenderList(clubList.reduce((a, b) => a.concat(b), []));
           break;
         case pathname.includes("none-people"):
           setFloor("none");
+          setIsNone(true);
           setRenderList(clubList.reduce((a, b) => a.concat(b), []));
           break;
       }
@@ -91,6 +95,7 @@ const Management = () => {
               setRenderModal(false);
             }}
             manage={renderMemberList}
+            isNone={isNone}
           ></Modal>
         )}
       </S.CheckClassWrapper>

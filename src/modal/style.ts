@@ -37,7 +37,7 @@ export const ModalMainWrapper = styled.div`
 `;
 
 export const ModalTitleWrapper = styled.div`
-  width: 22%;
+  width: 25%;
   height: 60%;
   background-color: #3cb0b8;
   display: flex;
