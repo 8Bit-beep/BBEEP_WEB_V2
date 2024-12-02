@@ -44,7 +44,7 @@ const ThirdClass = () => {
             </S.ContentMainWrapper>
           </S.ContentWrapper>
         </S.MainWrapper>
-        {modal === true ? <Modal title={title} onClick={ItemClick} cls={cls}></Modal> : <></>}
+        {modal === true ? <Modal isNone title={title} onClick={ItemClick} cls={cls}></Modal> : <></>}
       </S.CheckClassWrapper>
     </ModalPortal>
   );

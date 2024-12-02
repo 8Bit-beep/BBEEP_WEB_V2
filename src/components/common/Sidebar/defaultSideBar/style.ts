@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SidebarWrap = styled.div`
   width: 220px;
   min-width: 220px;
-  height: calc(100vh);
+  height: 100%;
 
   background: #434f5e;
 
