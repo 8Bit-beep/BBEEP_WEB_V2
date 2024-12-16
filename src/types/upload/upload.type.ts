@@ -14,5 +14,5 @@ export interface UploadCsvResponse {
   data: UploadCsv[];
 }
 
-export type TimeTable = 'EIGHT' | 'NINE' | 'TEN' | 'ELEVEN';
+export type TimeTable = 'EIGHT_NINE' | 'TEN' | 'ELEVEN';
 export type DayOfWeek = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY';

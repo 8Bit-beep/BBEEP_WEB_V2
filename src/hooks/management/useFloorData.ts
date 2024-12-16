@@ -46,8 +46,7 @@ const UseFloorData = () => {
 
       // 기본 출석 정보 설정
       const attendance = {
-        '8교시 출석': '4:30~5:20 / 결석',
-        '9교시 출석': '5:30~6:20 / 결석',
+        '8,9교시 출석': '4:30~6:20 / 결석',
         '10교시 출석': '7:10~8:00 /결석',
         '11교시 출석': '8:10~9:00 / 결석',
       };
@@ -59,10 +58,8 @@ const UseFloorData = () => {
         if (lastUpdated) {
           const formattedTime = dayjs(lastUpdated.toString()).format('hh:mm:ss');
 
-          if (timeTable === 'EIGHT') {
-            attendance['8교시 출석'] = `4:30~5:20 / ${formattedTime}`;
-          } else if (timeTable === 'NINE') {
-            attendance['9교시 출석'] = `5:30~6:20 / ${formattedTime}`;
+          if (timeTable === 'EIGHT_NINE') {
+            attendance['8,9교시 출석'] = `4:30~6:20 / ${formattedTime}`;
           } else if (timeTable === 'TEN') {
             attendance['10교시 출석'] = `7:10~8:00 / ${formattedTime}`;
           } else if (timeTable === 'ELEVEN') {
@@ -73,7 +70,7 @@ const UseFloorData = () => {
 
       const csvEntry: CsvDataType = {
         이름: item.name || '',
-        실: item.currentRoom || '',
+        실: item.fixedRoom || '',
         동아리: item.club || '',
         학번: `${item.grade}학년${item.cls}반${item.num}번`,
         ...attendance, // 출석 정보 추가

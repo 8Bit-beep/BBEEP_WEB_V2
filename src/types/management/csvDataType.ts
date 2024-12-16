@@ -4,8 +4,7 @@ export interface CsvDataType {
   실: string | undefined;
   이름: string | undefined;
   학번: string;
-  '8교시 출석': string | undefined;
-  '9교시 출석': string | undefined;
+  '8,9교시 출석': string | undefined;
   '10교시 출석': string | undefined;
   '11교시 출석': string | undefined;
 }

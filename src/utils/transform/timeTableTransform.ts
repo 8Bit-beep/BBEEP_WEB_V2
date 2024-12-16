@@ -1,8 +1,8 @@
 export const timeTableTransform = (timeTable: string) => {
   switch (timeTable) {
-    case 'EIGHT':
+    case 'EIGHT_NINE':
       return '8교시';
-    case 'NINE':
+    case 'EIGHT_NINE':
       return '9교시';
     case 'TEN':
       return '10교시';

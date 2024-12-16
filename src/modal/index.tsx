@@ -149,7 +149,7 @@ const Modal = ({ onClick, cls = [], title, manage, isNone }: Props) => {
                                     )}
                               </S.TitleSpan>
                             </div>
-                            {["EIGTH_NINE", "TEN", "ELEVEN"]
+                            {["EIGHT_NINE", "TEN", "ELEVEN"]
                               .map((key, index) => {
                                 return item.todayLastLogs[index] || { lastUpdated: null, position: key };
                               })
@@ -232,7 +232,7 @@ const Modal = ({ onClick, cls = [], title, manage, isNone }: Props) => {
                                   )}
                             </S.TitleSpan>
                           </div>
-                          {["EIGT_NINE", "TEN", "ELEVEN"]
+                          {["EIGTH_NINE", "TEN", "ELEVEN"]
                             .map((key, index) => {
                               return item.todayLastLogs[index] || { lastUpdated: null, position: key };
                             })
