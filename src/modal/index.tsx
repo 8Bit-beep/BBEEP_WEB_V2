@@ -71,7 +71,7 @@ const Modal = ({ onClick, cls = [], title, manage, isNone }: Props) => {
                   >
                     <S.TitleSpan>마지막 출석</S.TitleSpan>
                   </div>
-                  {['1', '2', '3'].map((item) => (
+                  {['1', '2', '3', '4'].map((item) => (
                     <>
                       <div
                         style={{
@@ -149,7 +149,7 @@ const Modal = ({ onClick, cls = [], title, manage, isNone }: Props) => {
                                     )}
                               </S.TitleSpan>
                             </div>
-                            {['ONE', 'TWO', 'THREE']
+                            {['ONE', 'TWO', 'THREE', 'FOUR']
                               .map((key, index) => {
                                 return item.todayLastLogs[index] || { lastUpdated: null, position: key };
                               })
@@ -232,7 +232,7 @@ const Modal = ({ onClick, cls = [], title, manage, isNone }: Props) => {
                                   )}
                             </S.TitleSpan>
                           </div>
-                          {['ONE', 'TWO', 'THREE']
+                          {['ONE', 'TWO', 'THREE', 'FOUR']
                             .map((key, index) => {
                               return item.todayLastLogs[index] || { lastUpdated: null, position: key };
                             })
